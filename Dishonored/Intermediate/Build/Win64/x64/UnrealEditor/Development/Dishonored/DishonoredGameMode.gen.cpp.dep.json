@@ -1,0 +1,19 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\unreal\\dishonored\\dishonored\\intermediate\\build\\win64\\unrealeditor\\inc\\dishonored\\uht\\dishonoredgamemode.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\unreal\\dishonored\\dishonored\\intermediate\\build\\win64\\x64\\dishonorededitor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "d:\\unreal\\dishonored\\dishonored\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\dishonored\\definitions.dishonored.h",
+            "d:\\unreal\\dishonored\\dishonored\\source\\dishonored\\dishonoredgamemode.h",
+            "d:\\epic games\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemodebase.h",
+            "d:\\epic games\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\engine\\serverstatreplicator.h",
+            "d:\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\serverstatreplicator.generated.h",
+            "d:\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamemodebase.generated.h",
+            "d:\\unreal\\dishonored\\dishonored\\intermediate\\build\\win64\\unrealeditor\\inc\\dishonored\\uht\\dishonoredgamemode.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

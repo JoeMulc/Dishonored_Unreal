@@ -1,0 +1,14 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\unreal\\dishonored\\dishonored\\source\\dishonored\\dishonored.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\unreal\\dishonored\\dishonored\\intermediate\\build\\win64\\x64\\dishonorededitor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "d:\\unreal\\dishonored\\dishonored\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\dishonored\\definitions.dishonored.h",
+            "d:\\unreal\\dishonored\\dishonored\\source\\dishonored\\dishonored.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

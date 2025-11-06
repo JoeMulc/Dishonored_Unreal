@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"D:\\Unreal\\Dishonored\\Dishonored\\Source\\Dishonored\\Dishonored.Build.cs",
+		"D:\\Unreal\\Dishonored\\Dishonored\\Source\\Dishonored.Target.cs",
+		"D:\\Unreal\\Dishonored\\Dishonored\\Source\\DishonoredEditor.Target.cs"
+	],
+	"EngineVersion": "5.5.4"
+}

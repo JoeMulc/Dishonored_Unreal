@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "Dishonored",
+			"Path": "..\\Source\\Dishonored.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "DishonoredEditor",
+			"Path": "..\\Source\\DishonoredEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
