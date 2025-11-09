@@ -35,6 +35,8 @@ ADishonoredCharacter::ADishonoredCharacter()
 	Mesh1P->CastShadow = false;
 	Mesh1P->SetRelativeLocation(FVector(-30.f, 0.f, -150.f));
 
+	//Create ability component
+	abilityManager = CreateDefaultSubobject<UAbilityManager_Component>(TEXT("AbilityComponent"));
 }
 
 //////////////////////////////////////////////////////////////////////////// Input
@@ -86,6 +88,8 @@ void ADishonoredCharacter::Move(const FInputActionValue& Value)
 		AddMovementInput(GetActorForwardVector(), MovementVector.Y);
 		AddMovementInput(GetActorRightVector(), MovementVector.X);
 	}
+
+	abilityManager->abilityArray[0]->Test();
 }
 
 void ADishonoredCharacter::Look(const FInputActionValue& Value)

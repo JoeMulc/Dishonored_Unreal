@@ -17,11 +17,11 @@ struct FHitResult;
 #endif
 #define DISHONORED_DishonoredProjectile_generated_h
 
-#define FID_Unreal_Dishonored_Dishonored_Source_Dishonored_DishonoredProjectile_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredProjectile_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execOnHit);
 
 
-#define FID_Unreal_Dishonored_Dishonored_Source_Dishonored_DishonoredProjectile_h_15_INCLASS_NO_PURE_DECLS \
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredProjectile_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesADishonoredProjectile(); \
 	friend struct Z_Construct_UClass_ADishonoredProjectile_Statics; \
@@ -32,7 +32,7 @@ public: \
 
 
 
-#define FID_Unreal_Dishonored_Dishonored_Source_Dishonored_DishonoredProjectile_h_15_ENHANCED_CONSTRUCTORS \
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredProjectile_h_15_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	ADishonoredProjectile(ADishonoredProjectile&&); \
@@ -44,13 +44,13 @@ public: \
 	NO_API virtual ~ADishonoredProjectile();
 
 
-#define FID_Unreal_Dishonored_Dishonored_Source_Dishonored_DishonoredProjectile_h_12_PROLOG
-#define FID_Unreal_Dishonored_Dishonored_Source_Dishonored_DishonoredProjectile_h_15_GENERATED_BODY \
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredProjectile_h_12_PROLOG
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredProjectile_h_15_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Unreal_Dishonored_Dishonored_Source_Dishonored_DishonoredProjectile_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Unreal_Dishonored_Dishonored_Source_Dishonored_DishonoredProjectile_h_15_INCLASS_NO_PURE_DECLS \
-	FID_Unreal_Dishonored_Dishonored_Source_Dishonored_DishonoredProjectile_h_15_ENHANCED_CONSTRUCTORS \
+	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredProjectile_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredProjectile_h_15_INCLASS_NO_PURE_DECLS \
+	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredProjectile_h_15_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -58,7 +58,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> DISHONORED_API UClass* StaticClass<class ADishonoredProjectile>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_Unreal_Dishonored_Dishonored_Source_Dishonored_DishonoredProjectile_h
+#define CURRENT_FILE_ID FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredProjectile_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

@@ -12,6 +12,7 @@ void EmptyLinkFunctionForGeneratedCodeDishonoredCharacter() {}
 // Begin Cross Module References
 DISHONORED_API UClass* Z_Construct_UClass_ADishonoredCharacter();
 DISHONORED_API UClass* Z_Construct_UClass_ADishonoredCharacter_NoRegister();
+DISHONORED_API UClass* Z_Construct_UClass_UAbilityManager_Component_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
@@ -61,6 +62,12 @@ struct Z_Construct_UClass_ADishonoredCharacter_Statics
 		{ "ToolTip", "First person camera" },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_abilityManager_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Abilities" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "DishonoredCharacter.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DefaultMappingContext_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Input" },
@@ -108,6 +115,7 @@ struct Z_Construct_UClass_ADishonoredCharacter_Statics
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Mesh1P;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_FirstPersonCameraComponent;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_abilityManager;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_DefaultMappingContext;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_JumpAction;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_MoveAction;
@@ -121,6 +129,7 @@ struct Z_Construct_UClass_ADishonoredCharacter_Statics
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_Mesh1P = { "Mesh1P", nullptr, (EPropertyFlags)0x00400000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADishonoredCharacter, Mesh1P), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Mesh1P_MetaData), NewProp_Mesh1P_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_FirstPersonCameraComponent = { "FirstPersonCameraComponent", nullptr, (EPropertyFlags)0x00400000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADishonoredCharacter, FirstPersonCameraComponent), Z_Construct_UClass_UCameraComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_FirstPersonCameraComponent_MetaData), NewProp_FirstPersonCameraComponent_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_abilityManager = { "abilityManager", nullptr, (EPropertyFlags)0x00400000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADishonoredCharacter, abilityManager), Z_Construct_UClass_UAbilityManager_Component_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_abilityManager_MetaData), NewProp_abilityManager_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_DefaultMappingContext = { "DefaultMappingContext", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADishonoredCharacter, DefaultMappingContext), Z_Construct_UClass_UInputMappingContext_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DefaultMappingContext_MetaData), NewProp_DefaultMappingContext_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_JumpAction = { "JumpAction", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADishonoredCharacter, JumpAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_JumpAction_MetaData), NewProp_JumpAction_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_MoveAction = { "MoveAction", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADishonoredCharacter, MoveAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MoveAction_MetaData), NewProp_MoveAction_MetaData) };
@@ -128,6 +137,7 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADishonoredCha
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADishonoredCharacter_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_Mesh1P,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_FirstPersonCameraComponent,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_abilityManager,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_DefaultMappingContext,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_JumpAction,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_MoveAction,
@@ -171,14 +181,14 @@ ADishonoredCharacter::~ADishonoredCharacter() {}
 // End Class ADishonoredCharacter
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Source_Dishonored_DishonoredCharacter_h_Statics
+struct Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredCharacter_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ADishonoredCharacter, ADishonoredCharacter::StaticClass, TEXT("ADishonoredCharacter"), &Z_Registration_Info_UClass_ADishonoredCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADishonoredCharacter), 4265333048U) },
+		{ Z_Construct_UClass_ADishonoredCharacter, ADishonoredCharacter::StaticClass, TEXT("ADishonoredCharacter"), &Z_Registration_Info_UClass_ADishonoredCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADishonoredCharacter), 749017116U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Source_Dishonored_DishonoredCharacter_h_3600730788(TEXT("/Script/Dishonored"),
-	Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Source_Dishonored_DishonoredCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Source_Dishonored_DishonoredCharacter_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredCharacter_h_2347345237(TEXT("/Script/Dishonored"),
+	Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredCharacter_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

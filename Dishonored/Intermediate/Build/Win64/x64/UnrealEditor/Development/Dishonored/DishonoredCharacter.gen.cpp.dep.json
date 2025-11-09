@@ -1,12 +1,12 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "d:\\unreal\\dishonored\\dishonored\\intermediate\\build\\win64\\unrealeditor\\inc\\dishonored\\uht\\dishonoredcharacter.gen.cpp",
+        "Source": "d:\\unreal\\dishonored\\dishonored_unreal\\dishonored\\intermediate\\build\\win64\\unrealeditor\\inc\\dishonored\\uht\\dishonoredcharacter.gen.cpp",
         "ProvidedModule": "",
-        "PCH": "d:\\unreal\\dishonored\\dishonored\\intermediate\\build\\win64\\x64\\dishonorededitor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "PCH": "d:\\unreal\\dishonored\\dishonored_unreal\\dishonored\\intermediate\\build\\win64\\x64\\dishonorededitor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
         "Includes": [
-            "d:\\unreal\\dishonored\\dishonored\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\dishonored\\definitions.dishonored.h",
-            "d:\\unreal\\dishonored\\dishonored\\source\\dishonored\\dishonoredcharacter.h",
+            "d:\\unreal\\dishonored\\dishonored_unreal\\dishonored\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\dishonored\\definitions.dishonored.h",
+            "d:\\unreal\\dishonored\\dishonored_unreal\\dishonored\\source\\dishonored\\dishonoredcharacter.h",
             "d:\\epic games\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\gameframework\\character.h",
             "d:\\epic games\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\gameframework\\charactermovementreplication.h",
             "d:\\epic games\\ue_5.5\\engine\\source\\runtime\\net\\core\\public\\net\\core\\nettoken\\nettokenexportcontext.h",
@@ -16,7 +16,17 @@
             "d:\\epic games\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\gameframework\\rootmotionsource.h",
             "d:\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\rootmotionsource.generated.h",
             "d:\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\character.generated.h",
-            "d:\\unreal\\dishonored\\dishonored\\intermediate\\build\\win64\\unrealeditor\\inc\\dishonored\\uht\\dishonoredcharacter.generated.h"
+            "d:\\unreal\\dishonored\\dishonored_unreal\\dishonored\\source\\dishonored\\abilitymanager_component.h",
+            "d:\\unreal\\dishonored\\dishonored_unreal\\dishonored\\source\\dishonored\\ability.h",
+            "d:\\epic games\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\uobject\\noexporttypes.h",
+            "d:\\epic games\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\uobject\\propertyaccessutil.h",
+            "d:\\epic games\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\serialization\\testundeclaredscriptstructobjectreferences.h",
+            "d:\\epic games\\ue_5.5\\engine\\source\\runtime\\core\\public\\math\\unitconversion.h",
+            "d:\\epic games\\ue_5.5\\engine\\source\\runtime\\core\\public\\math\\unitconversion.inl",
+            "d:\\epic games\\ue_5.5\\engine\\source\\runtime\\core\\public\\internationalization\\polyglottextdata.h",
+            "d:\\unreal\\dishonored\\dishonored_unreal\\dishonored\\intermediate\\build\\win64\\unrealeditor\\inc\\dishonored\\uht\\ability.generated.h",
+            "d:\\unreal\\dishonored\\dishonored_unreal\\dishonored\\intermediate\\build\\win64\\unrealeditor\\inc\\dishonored\\uht\\abilitymanager_component.generated.h",
+            "d:\\unreal\\dishonored\\dishonored_unreal\\dishonored\\intermediate\\build\\win64\\unrealeditor\\inc\\dishonored\\uht\\dishonoredcharacter.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

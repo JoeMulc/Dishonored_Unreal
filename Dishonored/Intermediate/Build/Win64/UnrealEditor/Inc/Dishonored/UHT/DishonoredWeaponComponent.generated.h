@@ -15,13 +15,13 @@ class ADishonoredCharacter;
 #endif
 #define DISHONORED_DishonoredWeaponComponent_generated_h
 
-#define FID_Unreal_Dishonored_Dishonored_Source_Dishonored_DishonoredWeaponComponent_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredWeaponComponent_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execEndPlay); \
 	DECLARE_FUNCTION(execFire); \
 	DECLARE_FUNCTION(execAttachWeapon);
 
 
-#define FID_Unreal_Dishonored_Dishonored_Source_Dishonored_DishonoredWeaponComponent_h_14_INCLASS_NO_PURE_DECLS \
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredWeaponComponent_h_14_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUDishonoredWeaponComponent(); \
 	friend struct Z_Construct_UClass_UDishonoredWeaponComponent_Statics; \
@@ -30,7 +30,7 @@ public: \
 	DECLARE_SERIALIZER(UDishonoredWeaponComponent)
 
 
-#define FID_Unreal_Dishonored_Dishonored_Source_Dishonored_DishonoredWeaponComponent_h_14_ENHANCED_CONSTRUCTORS \
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredWeaponComponent_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	UDishonoredWeaponComponent(UDishonoredWeaponComponent&&); \
@@ -42,13 +42,13 @@ public: \
 	NO_API virtual ~UDishonoredWeaponComponent();
 
 
-#define FID_Unreal_Dishonored_Dishonored_Source_Dishonored_DishonoredWeaponComponent_h_11_PROLOG
-#define FID_Unreal_Dishonored_Dishonored_Source_Dishonored_DishonoredWeaponComponent_h_14_GENERATED_BODY \
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredWeaponComponent_h_11_PROLOG
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredWeaponComponent_h_14_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Unreal_Dishonored_Dishonored_Source_Dishonored_DishonoredWeaponComponent_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Unreal_Dishonored_Dishonored_Source_Dishonored_DishonoredWeaponComponent_h_14_INCLASS_NO_PURE_DECLS \
-	FID_Unreal_Dishonored_Dishonored_Source_Dishonored_DishonoredWeaponComponent_h_14_ENHANCED_CONSTRUCTORS \
+	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredWeaponComponent_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredWeaponComponent_h_14_INCLASS_NO_PURE_DECLS \
+	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredWeaponComponent_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -56,7 +56,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> DISHONORED_API UClass* StaticClass<class UDishonoredWeaponComponent>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_Unreal_Dishonored_Dishonored_Source_Dishonored_DishonoredWeaponComponent_h
+#define CURRENT_FILE_ID FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredWeaponComponent_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

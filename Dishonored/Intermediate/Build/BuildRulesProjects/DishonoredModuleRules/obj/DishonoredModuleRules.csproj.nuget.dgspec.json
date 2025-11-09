@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Unreal\\Dishonored\\Dishonored\\Intermediate\\Build\\BuildRulesProjects\\DishonoredModuleRules\\DishonoredModuleRules.csproj": {}
+    "D:\\Unreal\\Dishonored\\Dishonored_Unreal\\Dishonored\\Intermediate\\Build\\BuildRulesProjects\\DishonoredModuleRules\\DishonoredModuleRules.csproj": {}
   },
   "projects": {
     "D:\\Epic Games\\UE_5.5\\Engine\\Intermediate\\Build\\BuildRulesProjects\\UE5ProgramRules\\UE5ProgramRules.csproj": {
@@ -1170,14 +1170,14 @@
         }
       }
     },
-    "D:\\Unreal\\Dishonored\\Dishonored\\Intermediate\\Build\\BuildRulesProjects\\DishonoredModuleRules\\DishonoredModuleRules.csproj": {
+    "D:\\Unreal\\Dishonored\\Dishonored_Unreal\\Dishonored\\Intermediate\\Build\\BuildRulesProjects\\DishonoredModuleRules\\DishonoredModuleRules.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Unreal\\Dishonored\\Dishonored\\Intermediate\\Build\\BuildRulesProjects\\DishonoredModuleRules\\DishonoredModuleRules.csproj",
+        "projectUniqueName": "D:\\Unreal\\Dishonored\\Dishonored_Unreal\\Dishonored\\Intermediate\\Build\\BuildRulesProjects\\DishonoredModuleRules\\DishonoredModuleRules.csproj",
         "projectName": "DishonoredModuleRules",
-        "projectPath": "D:\\Unreal\\Dishonored\\Dishonored\\Intermediate\\Build\\BuildRulesProjects\\DishonoredModuleRules\\DishonoredModuleRules.csproj",
+        "projectPath": "D:\\Unreal\\Dishonored\\Dishonored_Unreal\\Dishonored\\Intermediate\\Build\\BuildRulesProjects\\DishonoredModuleRules\\DishonoredModuleRules.csproj",
         "packagesPath": "C:\\Users\\Joe\\.nuget\\packages\\",
-        "outputPath": "D:\\Unreal\\Dishonored\\Dishonored\\Intermediate\\Build\\BuildRulesProjects\\DishonoredModuleRules\\obj\\",
+        "outputPath": "D:\\Unreal\\Dishonored\\Dishonored_Unreal\\Dishonored\\Intermediate\\Build\\BuildRulesProjects\\DishonoredModuleRules\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

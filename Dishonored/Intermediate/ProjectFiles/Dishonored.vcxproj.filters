@@ -11,6 +11,7 @@
     <None Include="..\..\Source\DishonoredEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.vsconfig" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -32,6 +33,24 @@
     <Filter Include="Source\Dishonored">
       <UniqueIdentifier>{A132D019-D2E2-330C-92C0-048FE9400E03}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\Dishonored\Ability.cpp">
+      <Filter>Source\Dishonored</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Dishonored\Ability.h">
+      <Filter>Source\Dishonored</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Dishonored\AbilityManager_Component.cpp">
+      <Filter>Source\Dishonored</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Dishonored\AbilityManager_Component.h">
+      <Filter>Source\Dishonored</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Dishonored\Blink_Ability.cpp">
+      <Filter>Source\Dishonored</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Dishonored\Blink_Ability.h">
+      <Filter>Source\Dishonored</Filter>
+    </ClCompile>
     <None Include="..\..\Source\Dishonored\Dishonored.Build.cs">
       <Filter>Source\Dishonored</Filter>
     </None>

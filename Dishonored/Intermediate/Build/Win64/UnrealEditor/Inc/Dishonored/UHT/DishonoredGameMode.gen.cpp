@@ -78,14 +78,14 @@ ADishonoredGameMode::~ADishonoredGameMode() {}
 // End Class ADishonoredGameMode
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Source_Dishonored_DishonoredGameMode_h_Statics
+struct Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredGameMode_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
 		{ Z_Construct_UClass_ADishonoredGameMode, ADishonoredGameMode::StaticClass, TEXT("ADishonoredGameMode"), &Z_Registration_Info_UClass_ADishonoredGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADishonoredGameMode), 2570176250U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Source_Dishonored_DishonoredGameMode_h_1906186393(TEXT("/Script/Dishonored"),
-	Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Source_Dishonored_DishonoredGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Source_Dishonored_DishonoredGameMode_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredGameMode_h_1906186393(TEXT("/Script/Dishonored"),
+	Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredGameMode_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

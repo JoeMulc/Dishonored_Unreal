@@ -21,13 +21,13 @@ void EmptyLinkFunctionForGeneratedCodeDishonored_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0xBBA2DE93,
-				0xF4A0E7F5,
+				0xB877B8EF,
+				0xC489DA11,
 				METADATA_PARAMS(0, nullptr)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_Dishonored.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_Dishonored.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_Dishonored(Z_Construct_UPackage__Script_Dishonored, TEXT("/Script/Dishonored"), Z_Registration_Info_UPackage__Script_Dishonored, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xBBA2DE93, 0xF4A0E7F5));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_Dishonored(Z_Construct_UPackage__Script_Dishonored, TEXT("/Script/Dishonored"), Z_Registration_Info_UPackage__Script_Dishonored, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xB877B8EF, 0xC489DA11));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
