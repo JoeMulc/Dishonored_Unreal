@@ -9,8 +9,32 @@ UAbility::UAbility()
 
 }
 
-void UAbility::Test()
+void UAbility::Activate()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Ability activated!"));
+
 }
 
+void UAbility::Deactivate()
+{
+
+}
+
+void UAbility::Tick(float DeltaTime)
+{
+    if (!doTick) return;
+}
+
+TStatId UAbility::GetStatId() const
+{
+    RETURN_QUICK_DECLARE_CYCLE_STAT(UAbility, STATGROUP_Tickables);
+}
+
+bool UAbility::IsTickable() const
+{
+    return doTick && !IsTemplate();
+}
+
+ETickableTickType UAbility::GetTickableTickType() const
+{
+    return ETickableTickType::Always;
+}

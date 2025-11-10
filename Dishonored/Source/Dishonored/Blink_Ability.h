@@ -15,5 +15,9 @@ class DISHONORED_API UBlink_Ability : public UAbility
 	GENERATED_BODY()
 public:
 	UBlink_Ability();
-	virtual void Test();
+
+	virtual void Activate();
+	virtual void Deactivate();
+
+	virtual void Tick(float DeltaTime) override;
 };

@@ -69,6 +69,9 @@ void ADishonoredCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInpu
 
 		// Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ADishonoredCharacter::Look);
+
+		EnhancedInputComponent->BindAction(AbilityAction, ETriggerEvent::Started , this, &ADishonoredCharacter::StartAbility);
+		EnhancedInputComponent->BindAction(AbilityAction, ETriggerEvent::Completed, this, &ADishonoredCharacter::StopAbility);
 	}
 	else
 	{
@@ -89,7 +92,7 @@ void ADishonoredCharacter::Move(const FInputActionValue& Value)
 		AddMovementInput(GetActorRightVector(), MovementVector.X);
 	}
 
-	abilityManager->abilityArray[0]->Test();
+	
 }
 
 void ADishonoredCharacter::Look(const FInputActionValue& Value)
@@ -103,4 +106,14 @@ void ADishonoredCharacter::Look(const FInputActionValue& Value)
 		AddControllerYawInput(LookAxisVector.X);
 		AddControllerPitchInput(LookAxisVector.Y);
 	}
+}
+
+void ADishonoredCharacter::StartAbility(const FInputActionValue& Value)
+{
+	if (abilityManager->abilityArray[0]) abilityManager->abilityArray[0]->Activate();
+}
+
+void ADishonoredCharacter::StopAbility(const FInputActionValue& Value)
+{
+	if (abilityManager->abilityArray[0]) abilityManager->abilityArray[0]->Deactivate();
 }

@@ -4,22 +4,31 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "Tickable.h"
 #include "Ability.generated.h"
 
 /**
  * 
  */
 UCLASS(Blueprintable, BlueprintType)
-class DISHONORED_API UAbility : public UObject
+class DISHONORED_API UAbility : public UObject, public FTickableGameObject
 {
 	GENERATED_BODY()
 	
 public:
 	UAbility();
 
-	virtual void Test();
+	virtual void Activate();
+	virtual void Deactivate();
 	class ADishonoredCharacter* characterRef;
-private:
 
+	//Tick
+	virtual void Tick(float DeltaTime) override;
+	virtual TStatId GetStatId() const override;
+	virtual bool IsTickable() const override;
+	virtual ETickableTickType GetTickableTickType() const override;
+
+protected:
+	bool doTick = false;
 	
 };
