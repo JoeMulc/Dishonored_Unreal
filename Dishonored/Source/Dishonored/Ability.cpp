@@ -9,6 +9,11 @@ UAbility::UAbility()
 
 }
 
+void UAbility::Initialize()
+{
+
+}
+
 void UAbility::Activate()
 {
 

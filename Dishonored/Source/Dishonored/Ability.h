@@ -18,6 +18,7 @@ class DISHONORED_API UAbility : public UObject, public FTickableGameObject
 public:
 	UAbility();
 
+	virtual void Initialize();
 	virtual void Activate();
 	virtual void Deactivate();
 	class ADishonoredCharacter* characterRef;

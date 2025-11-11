@@ -45,6 +45,7 @@ void UAbilityManager_Component::InitializeAbilities()
 			if (newAbility)
 			{
 				newAbility->characterRef = ownerCharacter;
+				newAbility->Initialize();
 				abilityArray.Add(newAbility);
 				UE_LOG(LogTemp, Warning, TEXT("Initialized ability: %s"), *newAbility->GetName());
 			}

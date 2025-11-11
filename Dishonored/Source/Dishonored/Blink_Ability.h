@@ -4,6 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "Ability.h"
+#include "Engine/World.h"
+#include "CollisionQueryParams.h"
+#include "WorldCollision.h"  
+#include "DrawDebugHelpers.h"
+#include "Camera/CameraComponent.h"
+#include "Components/TimelineComponent.h"
 #include "Blink_Ability.generated.h"
 
 /**
@@ -16,8 +22,31 @@ class DISHONORED_API UBlink_Ability : public UAbility
 public:
 	UBlink_Ability();
 
+	virtual void Initialize();
 	virtual void Activate();
 	virtual void Deactivate();
 
+	void ExecuteBlink();
+	
+
 	virtual void Tick(float DeltaTime) override;
+private:
+
+	UPROPERTY(EditAnywhere) float blinkTraceRadius = 80.f; 
+	UPROPERTY(EditAnywhere) float blinkDistance = 800.f;
+
+	FVector blinkLocation;
+	bool bIsBlinking = false;
+
+	//Timeline
+	FVector startLocation;
+
+	UTimelineComponent* blinkTimeline;
+	UPROPERTY(EditAnywhere) UCurveFloat* blinkCurve;
+
+	FOnTimelineFloat blinkTimelineUpdateDelegate;
+	FOnTimelineEvent blinkTimelineFinishedDelegate;
+
+	UFUNCTION() void BlinkTimelineUpdate(float alpha);
+	UFUNCTION() void BlinkTimelineFinished();
 };
