@@ -1,5 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-
+//TODO:
+//stop player momentum when blinking - launch player after blinking based on blink ditance maybe im not sure how does dsihnored do it ong
 
 #include "Blink_Ability.h"
 #include "DishonoredCharacter.h"
@@ -46,7 +47,6 @@ void UBlink_Ability::Deactivate()
 	UE_LOG(LogTemp, Warning, TEXT("Ability deactivated!"));
 	doTick = false;
 
-	//characterRef->SetActorLocation(blinkLocation);
 	ExecuteBlink();
 }
 
@@ -55,24 +55,62 @@ void UBlink_Ability::Tick(float DeltaTime)
 	if (!doTick || bIsBlinking) return;
 	//UE_LOG(LogTemp, Warning, TEXT("Ticking!"));
 
-	FHitResult hitResult;
 	UCameraComponent* playerCamera = characterRef->GetFirstPersonCameraComponent();
-	FVector start = playerCamera->GetComponentLocation() + (playerCamera->GetForwardVector() * blinkTraceRadius);
-	FVector end = start + (playerCamera->GetForwardVector() * blinkDistance);
-	FCollisionShape collisionSphere = FCollisionShape::MakeSphere(blinkTraceRadius);
+	UCapsuleComponent* playerCapsule = characterRef->GetCapsuleComponent();
+	float playerCapsuleHalfHeight = playerCapsule->GetScaledCapsuleHalfHeight();
 
-	bool hit = GetWorld()->SweepSingleByChannel(
+	FHitResult hitResult;
+	FVector start = playerCamera->GetComponentLocation() + (playerCamera->GetForwardVector() * playerCapsuleHalfHeight);
+	FVector end = start + (playerCamera->GetForwardVector() * blinkDistance);
+	FCollisionShape collisionSphere = FCollisionShape::MakeSphere(playerCapsuleHalfHeight / 2);
+
+	if (!WallTooClose())
+	{
+		//Sweep for initial blinking
+		bool hit = GetWorld()->SweepSingleByChannel(
+			hitResult,
+			start,
+			end,
+			FQuat::Identity,
+			ECC_Visibility,
+			collisionSphere
+		);
+
+		blinkLocation = hit ? (hitResult.Location) + (hitResult.ImpactNormal * playerCapsuleHalfHeight / 2) : end;
+		
+
+		DrawDebugSphere(
+			GetWorld(),
+			hit ? hitResult.Location : end,
+			collisionSphere.GetSphereRadius(),
+			12,
+			hit ? FColor::Green : FColor::Red,
+			false,
+			0.1f,
+			0,
+			2.0f
+		);
+	}
+	else
+	{
+		blinkLocation = characterRef->GetActorLocation();
+	}
+
+	//Ray trace for snapping to ground
+	start = blinkLocation;
+	end = blinkLocation + FVector(0.f, 0.f, -blinkSnapToGroundDistance);
+	FCollisionQueryParams collisionParams;
+	collisionParams.AddIgnoredActor(characterRef);
+
+	bool downHit = GetWorld()->LineTraceSingleByChannel(
 		hitResult,
 		start,
 		end,
-		FQuat::Identity,
 		ECC_Visibility,
-		collisionSphere
+		collisionParams
 	);
 
-	blinkLocation = hit ? hitResult.Location : end;
-
-
+	if (downHit) blinkLocation = hitResult.Location + FVector(0.f, 0.f, playerCapsuleHalfHeight + 2);
 
 
 	//Debug
@@ -85,18 +123,6 @@ void UBlink_Ability::Tick(float DeltaTime)
 	//	2.0f,
 	//	0,
 	//	3.0f
-	//);
-	//
-	//DrawDebugSphere(
-	//	GetWorld(),
-	//	hit ? hitResult.Location : end,
-	//	collisionSphere.GetSphereRadius(),
-	//	12,
-	//	hit ? FColor::Green : FColor::Red,
-	//	true,
-	//	2.0f,
-	//	0,
-	//	2.0f
 	//);
 
 }
@@ -125,4 +151,30 @@ void  UBlink_Ability::BlinkTimelineFinished()
 	bIsBlinking = false;
 
 	characterRef->SetActorLocation(blinkLocation);
+}
+
+//INCREDIBLE FUNCTION JOE JUIST WOW LETS FIX THIS LATER - its real readable buddy for sure mmmhmmmm
+bool UBlink_Ability::WallTooClose()
+{
+	UCameraComponent* playerCamera = characterRef->GetFirstPersonCameraComponent();
+	UCapsuleComponent* playerCapsule = characterRef->GetCapsuleComponent();
+
+	FCollisionQueryParams wallParams;
+	wallParams.AddIgnoredActor(characterRef);
+	FHitResult hitResult;
+
+	FCollisionQueryParams collisionParams;
+	collisionParams.AddIgnoredActor(characterRef);
+
+	FVector start = characterRef->GetActorLocation();
+	FVector end = start + (playerCamera->GetForwardVector() * ((playerCapsule->GetScaledCapsuleHalfHeight() + (playerCapsule->GetScaledCapsuleHalfHeight() / 2))));
+	bool bWallTooClose = GetWorld()->LineTraceSingleByChannel(
+		hitResult,
+		start,
+		end,
+		ECC_Visibility,
+		collisionParams
+	);
+
+	return bWallTooClose;
 }

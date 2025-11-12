@@ -10,6 +10,7 @@
 #include "DrawDebugHelpers.h"
 #include "Camera/CameraComponent.h"
 #include "Components/TimelineComponent.h"
+#include "Components/CapsuleComponent.h"
 #include "Blink_Ability.generated.h"
 
 /**
@@ -34,9 +35,12 @@ private:
 
 	UPROPERTY(EditAnywhere) float blinkTraceRadius = 80.f; 
 	UPROPERTY(EditAnywhere) float blinkDistance = 800.f;
+	UPROPERTY(EditAnywhere) float blinkSnapToGroundDistance = 150.f;
 
 	FVector blinkLocation;
 	bool bIsBlinking = false;
+
+	bool WallTooClose();
 
 	//Timeline
 	FVector startLocation;
