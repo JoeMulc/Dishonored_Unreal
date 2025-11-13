@@ -77,19 +77,6 @@ void UBlink_Ability::Tick(float DeltaTime)
 		);
 
 		blinkLocation = hit ? (hitResult.Location) + (hitResult.ImpactNormal * playerCapsuleHalfHeight / 2) : end;
-		
-
-		DrawDebugSphere(
-			GetWorld(),
-			hit ? hitResult.Location : end,
-			collisionSphere.GetSphereRadius(),
-			12,
-			hit ? FColor::Green : FColor::Red,
-			false,
-			0.1f,
-			0,
-			2.0f
-		);
 	}
 	else
 	{
@@ -125,6 +112,18 @@ void UBlink_Ability::Tick(float DeltaTime)
 	//	3.0f
 	//);
 
+	//DrawDebugSphere(
+	//	GetWorld(),
+	//	hit ? hitResult.Location : end,
+	//	collisionSphere.GetSphereRadius(),
+	//	12,
+	//	hit ? FColor::Green : FColor::Red,
+	//	false,
+	//	0.1f,
+	//	0,
+	//	2.0f
+	//);
+
 }
 
 //Timeline stuff
@@ -151,6 +150,17 @@ void  UBlink_Ability::BlinkTimelineFinished()
 	bIsBlinking = false;
 
 	characterRef->SetActorLocation(blinkLocation);
+
+	//Only conserve forward momentum
+	UCharacterMovementComponent* moveComp = characterRef->GetCharacterMovement();
+
+	FVector currentVelocity = moveComp->Velocity;
+	FVector forwardVector = characterRef->GetActorForwardVector();
+	float forwardSpeed = FVector::DotProduct(currentVelocity, forwardVector);
+	FVector newVelocity = forwardVector * forwardSpeed; 
+
+	moveComp->Velocity = newVelocity;
+
 }
 
 //INCREDIBLE FUNCTION JOE JUIST WOW LETS FIX THIS LATER - its real readable buddy for sure mmmhmmmm
