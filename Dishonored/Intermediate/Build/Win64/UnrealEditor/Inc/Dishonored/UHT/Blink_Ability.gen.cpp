@@ -14,6 +14,8 @@ DISHONORED_API UClass* Z_Construct_UClass_UAbility();
 DISHONORED_API UClass* Z_Construct_UClass_UBlink_Ability();
 DISHONORED_API UClass* Z_Construct_UClass_UBlink_Ability_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UCurveFloat_NoRegister();
+NIAGARA_API UClass* Z_Construct_UClass_UNiagaraComponent_NoRegister();
+NIAGARA_API UClass* Z_Construct_UClass_UNiagaraSystem_NoRegister();
 UPackage* Z_Construct_UPackage__Script_Dishonored();
 // End Cross Module References
 
@@ -115,6 +117,20 @@ struct Z_Construct_UClass_UBlink_Ability_Statics
 		{ "IsBlueprintBase", "true" },
 		{ "ModuleRelativePath", "Blink_Ability.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_blinkVFX_MetaData[] = {
+		{ "Category", "Blink_Ability" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//VFX\n" },
+#endif
+		{ "ModuleRelativePath", "Blink_Ability.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "VFX" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_activeBlinkVFX_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Blink_Ability.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_blinkTraceRadius_MetaData[] = {
 		{ "Category", "Blink_Ability" },
 		{ "ModuleRelativePath", "Blink_Ability.h" },
@@ -132,6 +148,8 @@ struct Z_Construct_UClass_UBlink_Ability_Statics
 		{ "ModuleRelativePath", "Blink_Ability.h" },
 	};
 #endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_blinkVFX;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_activeBlinkVFX;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_blinkTraceRadius;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_blinkDistance;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_blinkSnapToGroundDistance;
@@ -148,11 +166,15 @@ struct Z_Construct_UClass_UBlink_Ability_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UBlink_Ability_Statics::NewProp_blinkVFX = { "blinkVFX", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBlink_Ability, blinkVFX), Z_Construct_UClass_UNiagaraSystem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_blinkVFX_MetaData), NewProp_blinkVFX_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UBlink_Ability_Statics::NewProp_activeBlinkVFX = { "activeBlinkVFX", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBlink_Ability, activeBlinkVFX), Z_Construct_UClass_UNiagaraComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_activeBlinkVFX_MetaData), NewProp_activeBlinkVFX_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UBlink_Ability_Statics::NewProp_blinkTraceRadius = { "blinkTraceRadius", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBlink_Ability, blinkTraceRadius), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_blinkTraceRadius_MetaData), NewProp_blinkTraceRadius_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UBlink_Ability_Statics::NewProp_blinkDistance = { "blinkDistance", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBlink_Ability, blinkDistance), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_blinkDistance_MetaData), NewProp_blinkDistance_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UBlink_Ability_Statics::NewProp_blinkSnapToGroundDistance = { "blinkSnapToGroundDistance", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBlink_Ability, blinkSnapToGroundDistance), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_blinkSnapToGroundDistance_MetaData), NewProp_blinkSnapToGroundDistance_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UBlink_Ability_Statics::NewProp_blinkCurve = { "blinkCurve", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBlink_Ability, blinkCurve), Z_Construct_UClass_UCurveFloat_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_blinkCurve_MetaData), NewProp_blinkCurve_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UBlink_Ability_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBlink_Ability_Statics::NewProp_blinkVFX,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBlink_Ability_Statics::NewProp_activeBlinkVFX,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBlink_Ability_Statics::NewProp_blinkTraceRadius,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBlink_Ability_Statics::NewProp_blinkDistance,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBlink_Ability_Statics::NewProp_blinkSnapToGroundDistance,
@@ -176,7 +198,7 @@ const UECodeGen_Private::FClassParams Z_Construct_UClass_UBlink_Ability_Statics:
 	UE_ARRAY_COUNT(FuncInfo),
 	UE_ARRAY_COUNT(Z_Construct_UClass_UBlink_Ability_Statics::PropPointers),
 	0,
-	0x001000A0u,
+	0x009000A0u,
 	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UBlink_Ability_Statics::Class_MetaDataParams), Z_Construct_UClass_UBlink_Ability_Statics::Class_MetaDataParams)
 };
 UClass* Z_Construct_UClass_UBlink_Ability()
@@ -199,10 +221,10 @@ UBlink_Ability::~UBlink_Ability() {}
 struct Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Blink_Ability_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UBlink_Ability, UBlink_Ability::StaticClass, TEXT("UBlink_Ability"), &Z_Registration_Info_UClass_UBlink_Ability, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBlink_Ability), 2338032705U) },
+		{ Z_Construct_UClass_UBlink_Ability, UBlink_Ability::StaticClass, TEXT("UBlink_Ability"), &Z_Registration_Info_UClass_UBlink_Ability, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBlink_Ability), 1998342353U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Blink_Ability_h_1132878999(TEXT("/Script/Dishonored"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Blink_Ability_h_1867977636(TEXT("/Script/Dishonored"),
 	Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Blink_Ability_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Blink_Ability_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

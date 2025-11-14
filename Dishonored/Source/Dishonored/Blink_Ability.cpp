@@ -10,6 +10,11 @@ UBlink_Ability::UBlink_Ability()
 	static ConstructorHelpers::FObjectFinder<UCurveFloat> CurveAsset(TEXT("/Script/Engine.CurveFloat'/Game/FirstPerson/Abilities/Blink/BlinkCurve.BlinkCurve'")); 
 
 	if (CurveAsset.Succeeded()) blinkCurve = CurveAsset.Object;
+
+	static ConstructorHelpers::FObjectFinder<UNiagaraSystem> BlinkVFXAsset(TEXT("/Script/Niagara.NiagaraSystem'/Game/FirstPerson/Abilities/Blink/BlinkVFX.BlinkVFX'") );
+
+	if (BlinkVFXAsset.Succeeded()) blinkVFX = BlinkVFXAsset.Object;
+	
 }
 
 void UBlink_Ability::Initialize()
@@ -40,12 +45,29 @@ void UBlink_Ability::Activate()
 	UE_LOG(LogTemp, Warning, TEXT("Ability activated!"));
 	doTick = true;
 
+	activeBlinkVFX = UNiagaraFunctionLibrary::SpawnSystemAtLocation(
+		GetWorld(),
+		blinkVFX,
+		characterRef->GetActorLocation(),
+		FRotator::ZeroRotator,
+		FVector(1.0f),
+		true,
+		true,
+		ENCPoolMethod::None
+	);
 }
 
 void UBlink_Ability::Deactivate()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Ability deactivated!"));
 	doTick = false;
+
+	if (activeBlinkVFX)
+	{
+		activeBlinkVFX->Deactivate();
+		activeBlinkVFX->DestroyComponent();
+		activeBlinkVFX = nullptr;
+	}
 
 	ExecuteBlink();
 }
@@ -98,6 +120,12 @@ void UBlink_Ability::Tick(float DeltaTime)
 	);
 
 	if (downHit) blinkLocation = hitResult.Location + FVector(0.f, 0.f, playerCapsuleHalfHeight + 2);
+
+	//Update VFX
+	if (activeBlinkVFX && activeBlinkVFX->IsActive())
+	{
+		activeBlinkVFX->SetWorldLocation(blinkLocation - FVector(0.f, 0.f, playerCapsuleHalfHeight - 4));
+	}
 
 
 	//Debug

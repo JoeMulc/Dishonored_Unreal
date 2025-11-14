@@ -9,6 +9,9 @@
 #include "WorldCollision.h"  
 #include "DrawDebugHelpers.h"
 #include "Camera/CameraComponent.h"
+#include "NiagaraSystem.h"
+#include "NiagaraComponent.h"
+#include "NiagaraFunctionLibrary.h"
 #include "Components/TimelineComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
@@ -33,6 +36,10 @@ public:
 
 	virtual void Tick(float DeltaTime) override;
 private:
+	//VFX
+	UPROPERTY(EditAnywhere) UNiagaraSystem* blinkVFX;
+
+	UPROPERTY() UNiagaraComponent* activeBlinkVFX;
 
 	UPROPERTY(EditAnywhere) float blinkTraceRadius = 80.f; 
 	UPROPERTY(EditAnywhere) float blinkDistance = 800.f;
