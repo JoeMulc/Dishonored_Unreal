@@ -55,9 +55,14 @@ class ADishonoredCharacter : public ACharacter
 public:
 	ADishonoredCharacter();
 
-	
+	UPROPERTY(EditAnywhere) float maxMana = 100.f;
+	UPROPERTY(EditAnywhere) float manaRegenRate = 10.f;
+	float currentMana;
+
 
 protected:
+	virtual void Tick(float DeltaTime) override;
+
 	/** Called for movement input */
 	void Move(const FInputActionValue& Value);
 

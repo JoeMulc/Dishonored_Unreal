@@ -19,7 +19,9 @@ UBlink_Ability::UBlink_Ability()
 
 	if (BlinkOnCooldownVFXAsset.Succeeded()) blinkOnCooldownVFX = BlinkOnCooldownVFXAsset.Object;
 	
+	name = "Blink";
 	cooldown = 1.5f;
+	manaCost = 33.f;
 }
 
 void UBlink_Ability::Initialize()
@@ -74,10 +76,11 @@ void UBlink_Ability::Deactivate()
 		activeBlinkVFX = nullptr;
 	}
 
-	if (!IsOnCooldown())
+	if (!IsOnCooldown() && characterRef->currentMana > manaCost)
 	{
 		ExecuteBlink();
 		currentCooldown = cooldown;
+		characterRef->currentMana = characterRef->currentMana - manaCost;
 	}
 }
 

@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "Tickable.h"
+#include "Components/Image.h"
 #include "Ability.generated.h"
 
 /**
@@ -38,5 +39,11 @@ protected:
 
 	UPROPERTY(EditAnywhere) float cooldown = 0.f;
 	float currentCooldown = 0.0f;
+
+	UPROPERTY(EditAnywhere) float manaCost = 0.f;
+
+	UPROPERTY(EditAnywhere) FName name;
+
+	//UPROPERTY(EditAnywhere) UImage* icon;
 	
 };

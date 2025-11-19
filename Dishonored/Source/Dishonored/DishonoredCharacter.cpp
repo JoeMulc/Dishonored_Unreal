@@ -37,6 +37,21 @@ ADishonoredCharacter::ADishonoredCharacter()
 
 	//Create ability component
 	abilityManager = CreateDefaultSubobject<UAbilityManager_Component>(TEXT("AbilityComponent"));
+
+	currentMana = maxMana;
+}
+
+void ADishonoredCharacter::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+	if (currentMana < maxMana)
+	{
+		currentMana += manaRegenRate * DeltaTime;
+		currentMana = FMath::Clamp(currentMana, 0.f, maxMana);
+	}
+
+	UE_LOG(LogTemplateCharacter, Warning, TEXT("Mana : %f"), currentMana);
 }
 
 //////////////////////////////////////////////////////////////////////////// Input
