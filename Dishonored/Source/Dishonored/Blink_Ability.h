@@ -39,6 +39,8 @@ private:
 	//VFX
 	UPROPERTY(EditAnywhere) UNiagaraSystem* blinkVFX;
 
+	UPROPERTY(EditAnywhere) UNiagaraSystem* blinkOnCooldownVFX;
+
 	UPROPERTY() UNiagaraComponent* activeBlinkVFX;
 
 	UPROPERTY(EditAnywhere) float blinkTraceRadius = 80.f; 

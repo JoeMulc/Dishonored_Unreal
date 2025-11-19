@@ -29,7 +29,14 @@ public:
 	virtual bool IsTickable() const override;
 	virtual ETickableTickType GetTickableTickType() const override;
 
+	//Cooldown
+	bool IsOnCooldown();
+
+
 protected:
 	bool doTick = false;
+
+	UPROPERTY(EditAnywhere) float cooldown = 0.f;
+	float currentCooldown = 0.0f;
 	
 };

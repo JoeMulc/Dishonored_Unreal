@@ -14,7 +14,12 @@ UBlink_Ability::UBlink_Ability()
 	static ConstructorHelpers::FObjectFinder<UNiagaraSystem> BlinkVFXAsset(TEXT("/Script/Niagara.NiagaraSystem'/Game/FirstPerson/Abilities/Blink/BlinkVFX.BlinkVFX'") );
 
 	if (BlinkVFXAsset.Succeeded()) blinkVFX = BlinkVFXAsset.Object;
+
+	static ConstructorHelpers::FObjectFinder<UNiagaraSystem> BlinkOnCooldownVFXAsset(TEXT("/Script/Niagara.NiagaraSystem'/Game/FirstPerson/Abilities/Blink/BlinkVFXOnCooldown.BlinkVFXOnCooldown'"));
+
+	if (BlinkOnCooldownVFXAsset.Succeeded()) blinkOnCooldownVFX = BlinkOnCooldownVFXAsset.Object;
 	
+	cooldown = 1.5f;
 }
 
 void UBlink_Ability::Initialize()
@@ -47,7 +52,7 @@ void UBlink_Ability::Activate()
 
 	activeBlinkVFX = UNiagaraFunctionLibrary::SpawnSystemAtLocation(
 		GetWorld(),
-		blinkVFX,
+		IsOnCooldown() ? blinkOnCooldownVFX : blinkVFX,
 		characterRef->GetActorLocation(),
 		FRotator::ZeroRotator,
 		FVector(1.0f),
@@ -69,11 +74,17 @@ void UBlink_Ability::Deactivate()
 		activeBlinkVFX = nullptr;
 	}
 
-	ExecuteBlink();
+	if (!IsOnCooldown())
+	{
+		ExecuteBlink();
+		currentCooldown = cooldown;
+	}
 }
 
 void UBlink_Ability::Tick(float DeltaTime)
 {
+	Super::Tick(DeltaTime);
+
 	if (!doTick || bIsBlinking) return;
 	//UE_LOG(LogTemp, Warning, TEXT("Ticking!"));
 
@@ -125,6 +136,7 @@ void UBlink_Ability::Tick(float DeltaTime)
 	if (activeBlinkVFX && activeBlinkVFX->IsActive())
 	{
 		activeBlinkVFX->SetWorldLocation(blinkLocation - FVector(0.f, 0.f, playerCapsuleHalfHeight - 4));
+		activeBlinkVFX->SetAsset(IsOnCooldown() ? blinkOnCooldownVFX : blinkVFX);
 	}
 
 

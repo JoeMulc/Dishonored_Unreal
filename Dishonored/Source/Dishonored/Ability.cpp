@@ -26,7 +26,11 @@ void UAbility::Deactivate()
 
 void UAbility::Tick(float DeltaTime)
 {
-    if (!doTick) return;
+    if (IsOnCooldown())
+    {
+        //UE_LOG(LogTemp, Warning, TEXT("Ability on cooldown! %.2f seconds remaining"), currentCooldown);
+        currentCooldown = FMath::Max(0, currentCooldown - DeltaTime);
+    }
 }
 
 TStatId UAbility::GetStatId() const
@@ -42,4 +46,9 @@ bool UAbility::IsTickable() const
 ETickableTickType UAbility::GetTickableTickType() const
 {
     return ETickableTickType::Always;
+}
+
+bool UAbility::IsOnCooldown()
+{
+    return currentCooldown > 0.f;
 }
