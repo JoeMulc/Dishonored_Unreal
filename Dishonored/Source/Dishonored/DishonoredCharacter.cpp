@@ -41,6 +41,25 @@ ADishonoredCharacter::ADishonoredCharacter()
 	currentMana = maxMana;
 }
 
+void ADishonoredCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+
+	if (manaBarWidgetClass)
+	{
+		APlayerController* PlayerController = Cast<APlayerController>(GetController());
+		if (PlayerController)
+		{
+			manaBarWidget = CreateWidget<UManaBarWidget>(PlayerController, manaBarWidgetClass);
+			if (manaBarWidget)
+			{
+				manaBarWidget->AddToViewport();
+				manaBarWidget->UpdateManaBar(currentMana, maxMana);
+			}
+		}
+	}
+}
+
 void ADishonoredCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
@@ -57,7 +76,13 @@ void ADishonoredCharacter::Tick(float DeltaTime)
 		currentManaRegenCooldown = FMath::Max(0, currentManaRegenCooldown - DeltaTime);
 	}
 
-	UE_LOG(LogTemplateCharacter, Warning, TEXT("Mana : %f"), currentMana);
+	// Update UI
+	if (manaBarWidget)
+	{
+		manaBarWidget->UpdateManaBar(currentMana, maxMana);
+	}
+
+	//UE_LOG(LogTemplateCharacter, Warning, TEXT("Mana : %f"), currentMana);
 }
 
 //////////////////////////////////////////////////////////////////////////// Input

@@ -90,5 +90,11 @@
     <ClCompile Include="..\..\Source\Dishonored\DishonoredWeaponComponent.h">
       <Filter>Source\Dishonored</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Dishonored\ManaBarWidget.cpp">
+      <Filter>Source\Dishonored</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Dishonored\ManaBarWidget.h">
+      <Filter>Source\Dishonored</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

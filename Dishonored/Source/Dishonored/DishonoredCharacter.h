@@ -6,6 +6,7 @@
 #include "GameFramework/Character.h"
 #include "Logging/LogMacros.h"
 #include "AbilityManager_Component.h"
+#include "ManaBarWidget.h"
 #include "DishonoredCharacter.generated.h"
 
 class UInputComponent;
@@ -66,6 +67,7 @@ public:
 	bool IsManaOnCoolDown();
 
 protected:
+	void BeginPlay();
 	virtual void Tick(float DeltaTime) override;
 
 	/** Called for movement input */
@@ -76,6 +78,10 @@ protected:
 
 	void StartAbility(const FInputActionValue& Value);
 	void StopAbility(const FInputActionValue& Value);
+
+	UPROPERTY(EditDefaultsOnly, Category = "UI") TSubclassOf<UManaBarWidget> manaBarWidgetClass;
+
+	UPROPERTY() UManaBarWidget* manaBarWidget;
 
 protected:
 	// APawn interface
