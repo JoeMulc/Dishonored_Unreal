@@ -56,9 +56,14 @@ public:
 	ADishonoredCharacter();
 
 	UPROPERTY(EditAnywhere) float maxMana = 100.f;
-	UPROPERTY(EditAnywhere) float manaRegenRate = 10.f;
+	UPROPERTY(EditAnywhere) float manaRegenRate = 20.f;
 	float currentMana;
 
+	float currentManaRegenCooldown = 0.f;
+
+	UPROPERTY(EditAnywhere) float manaRegenCooldown = 0.75f;
+
+	bool IsManaOnCoolDown();
 
 protected:
 	virtual void Tick(float DeltaTime) override;

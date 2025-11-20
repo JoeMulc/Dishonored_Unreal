@@ -45,10 +45,16 @@ void ADishonoredCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (currentMana < maxMana)
+	if (currentMana < maxMana && !IsManaOnCoolDown())
 	{
 		currentMana += manaRegenRate * DeltaTime;
 		currentMana = FMath::Clamp(currentMana, 0.f, maxMana);
+	}
+
+	if (IsManaOnCoolDown())
+	{
+		//UE_LOG(LogTemp, Warning, TEXT("Ability on cooldown! %.2f seconds remaining"), currentCooldown);
+		currentManaRegenCooldown = FMath::Max(0, currentManaRegenCooldown - DeltaTime);
 	}
 
 	UE_LOG(LogTemplateCharacter, Warning, TEXT("Mana : %f"), currentMana);
@@ -105,9 +111,7 @@ void ADishonoredCharacter::Move(const FInputActionValue& Value)
 		// add movement 
 		AddMovementInput(GetActorForwardVector(), MovementVector.Y);
 		AddMovementInput(GetActorRightVector(), MovementVector.X);
-	}
-
-	
+	}	
 }
 
 void ADishonoredCharacter::Look(const FInputActionValue& Value)
@@ -131,4 +135,9 @@ void ADishonoredCharacter::StartAbility(const FInputActionValue& Value)
 void ADishonoredCharacter::StopAbility(const FInputActionValue& Value)
 {
 	if (abilityManager->abilityArray[0]) abilityManager->abilityArray[0]->Deactivate();
+}
+
+bool ADishonoredCharacter::IsManaOnCoolDown()
+{
+	return currentManaRegenCooldown > 0;
 }

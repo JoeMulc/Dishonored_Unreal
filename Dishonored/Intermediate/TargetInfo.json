@@ -1,31 +1,6 @@
 {
 	"Targets": [
 		{
-			"Name": "LiveLinkHub",
-			"Path": "..\\..\\..\\..\\..\\Epic Games\\UE_5.5\\Engine\\Source\\Programs\\LiveLinkHub\\Source\\LiveLinkHub.Target.cs",
-			"Type": "Editor"
-		},
-		{
-			"Name": "DotNetPerforceLib",
-			"Path": "..\\..\\..\\..\\..\\Epic Games\\UE_5.5\\Engine\\Source\\Programs\\Shared\\EpicGames.Perforce.Native\\DotNetPerforceLib.Target.cs",
-			"Type": "Program"
-		},
-		{
-			"Name": "EventLoopUnitTests",
-			"Path": "..\\..\\..\\..\\..\\Epic Games\\UE_5.5\\Engine\\Source\\Runtime\\Online\\Experimental\\EventLoopTests\\EventLoopUnitTests.Target.cs",
-			"Type": "Program"
-		},
-		{
-			"Name": "UnrealEditor",
-			"Path": "..\\..\\..\\..\\..\\Epic Games\\UE_5.5\\Engine\\Source\\UnrealEditor.Target.cs",
-			"Type": "Editor"
-		},
-		{
-			"Name": "UnrealGame",
-			"Path": "..\\..\\..\\..\\..\\Epic Games\\UE_5.5\\Engine\\Source\\UnrealGame.Target.cs",
-			"Type": "Game"
-		},
-		{
 			"Name": "Dishonored",
 			"Path": "..\\Source\\Dishonored.Target.cs",
 			"Type": "Game"
