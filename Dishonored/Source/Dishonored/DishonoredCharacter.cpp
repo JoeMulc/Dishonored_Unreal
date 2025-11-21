@@ -68,7 +68,9 @@ void ADishonoredCharacter::Tick(float DeltaTime)
 	{
 		currentMana += manaRegenRate * DeltaTime;
 		currentMana = FMath::Clamp(currentMana, 0.f, maxMana);
+		bIsManaChanging = true;
 	}
+	else bIsManaChanging = false;
 
 	if (IsManaOnCoolDown())
 	{
@@ -77,7 +79,7 @@ void ADishonoredCharacter::Tick(float DeltaTime)
 	}
 
 	// Update UI
-	if (manaBarWidget)
+	if (bIsManaChanging)
 	{
 		manaBarWidget->UpdateManaBar(currentMana, maxMana);
 	}

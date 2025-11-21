@@ -81,6 +81,7 @@ void UBlink_Ability::Deactivate()
 		ExecuteBlink();
 		currentCooldown = cooldown;
 		characterRef->currentMana = characterRef->currentMana - manaCost;
+		characterRef->manaBarWidget->UpdateManaBar(characterRef->currentMana, characterRef->maxMana);
 		characterRef->currentManaRegenCooldown = characterRef->manaRegenCooldown;
 	}
 }
@@ -178,14 +179,25 @@ void  UBlink_Ability::ExecuteBlink()
 
 	startLocation = characterRef->GetActorLocation();
 
+	UCameraComponent* playerCamera = characterRef->GetFirstPersonCameraComponent();
+	originalFOV = playerCamera->FieldOfView;
+
 	bIsBlinking = true;
 	blinkTimeline->PlayFromStart();
 }
 
 void  UBlink_Ability::BlinkTimelineUpdate(float alpha)
 {
+	//Move Player
 	FVector currentLocation = FMath::Lerp(startLocation, blinkLocation, alpha);
 	characterRef->SetActorLocation(currentLocation);
+
+	//CameraFOV
+	float fovAlpha = FMath::Sin(alpha * PI);
+	float targetFOV = FMath::Lerp(originalFOV, originalFOV * multiplierFOV, fovAlpha);
+
+	UCameraComponent* playerCamera = characterRef->GetFirstPersonCameraComponent();
+	playerCamera->SetFieldOfView(targetFOV);
 }
 
 void  UBlink_Ability::BlinkTimelineFinished()
@@ -194,6 +206,9 @@ void  UBlink_Ability::BlinkTimelineFinished()
 	bIsBlinking = false;
 
 	characterRef->SetActorLocation(blinkLocation);
+
+	UCameraComponent* playerCamera = characterRef->GetFirstPersonCameraComponent();
+	playerCamera->SetFieldOfView(originalFOV);
 
 	//Only conserve forward momentum
 	UCharacterMovementComponent* moveComp = characterRef->GetCharacterMovement();

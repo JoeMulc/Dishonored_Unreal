@@ -66,6 +66,10 @@ public:
 
 	bool IsManaOnCoolDown();
 
+	bool bIsManaChanging = false;
+
+	UPROPERTY() UManaBarWidget* manaBarWidget;
+
 protected:
 	void BeginPlay();
 	virtual void Tick(float DeltaTime) override;
@@ -80,8 +84,6 @@ protected:
 	void StopAbility(const FInputActionValue& Value);
 
 	UPROPERTY(EditDefaultsOnly, Category = "UI") TSubclassOf<UManaBarWidget> manaBarWidgetClass;
-
-	UPROPERTY() UManaBarWidget* manaBarWidget;
 
 protected:
 	// APawn interface

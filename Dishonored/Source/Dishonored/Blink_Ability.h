@@ -52,6 +52,10 @@ private:
 
 	bool WallTooClose();
 
+	float originalFOV;
+
+	UPROPERTY(EditAnywhere) float multiplierFOV = 1.1f;
+
 	//Timeline
 	FVector startLocation;
 
