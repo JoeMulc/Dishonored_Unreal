@@ -45,6 +45,12 @@
     <ClCompile Include="..\..\Source\Dishonored\AbilityManager_Component.h">
       <Filter>Source\Dishonored</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Dishonored\AbilityWheel.cpp">
+      <Filter>Source\Dishonored</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Dishonored\AbilityWheel.h">
+      <Filter>Source\Dishonored</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Dishonored\Blink_Ability.cpp">
       <Filter>Source\Dishonored</Filter>
     </ClCompile>
