@@ -18,6 +18,9 @@ UBlink_Ability::UBlink_Ability()
 	static ConstructorHelpers::FObjectFinder<UNiagaraSystem> BlinkOnCooldownVFXAsset(TEXT("/Script/Niagara.NiagaraSystem'/Game/FirstPerson/Abilities/Blink/BlinkVFXOnCooldown.BlinkVFXOnCooldown'"));
 
 	if (BlinkOnCooldownVFXAsset.Succeeded()) blinkOnCooldownVFX = BlinkOnCooldownVFXAsset.Object;
+
+	static ConstructorHelpers::FObjectFinder<UTexture2D> IconAsset(TEXT("/Script/Engine.Texture2D'/Game/FirstPerson/UI/DishonorerdIcon.DishonorerdIcon'"));
+	if (IconAsset.Succeeded()) abilityIcon = IconAsset.Object;
 	
 	name = "Blink";
 	cooldown = 1.5f;

@@ -33,6 +33,7 @@ public:
 	//Cooldown
 	bool IsOnCooldown();
 
+	UPROPERTY(EditAnywhere) UTexture2D* abilityIcon;
 
 protected:
 	bool doTick = false;
@@ -44,6 +45,4 @@ protected:
 
 	UPROPERTY(EditAnywhere) FName name;
 
-	//UPROPERTY(EditAnywhere) UImage* icon;
-	
 };

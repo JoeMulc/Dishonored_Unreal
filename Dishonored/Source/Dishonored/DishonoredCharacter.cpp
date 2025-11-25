@@ -58,6 +58,22 @@ void ADishonoredCharacter::BeginPlay()
 			}
 		}
 	}
+
+	if (abilityWheelClass)
+	{
+		APlayerController* PlayerController = Cast<APlayerController>(GetController());
+		if (PlayerController)
+		{
+			abilityWheel = CreateWidget<UAbilityWheel>(PlayerController, abilityWheelClass);
+
+			if (abilityWheel)
+			{
+				abilityWheel->InitButton(abilityManager->abilityArray[0]->abilityIcon);
+				abilityWheel->AddToViewport();
+			}
+		}
+	}
+	
 }
 
 void ADishonoredCharacter::Tick(float DeltaTime)

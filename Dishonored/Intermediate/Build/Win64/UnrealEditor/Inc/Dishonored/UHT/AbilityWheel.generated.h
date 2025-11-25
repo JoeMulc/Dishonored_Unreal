@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define DISHONORED_AbilityWheel_generated_h
 
-#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_AbilityWheel_h_15_INCLASS_NO_PURE_DECLS \
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_AbilityWheel_h_23_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUAbilityWheel(); \
 	friend struct Z_Construct_UClass_UAbilityWheel_Statics; \
@@ -23,7 +23,7 @@ public: \
 	DECLARE_SERIALIZER(UAbilityWheel)
 
 
-#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_AbilityWheel_h_15_ENHANCED_CONSTRUCTORS \
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_AbilityWheel_h_23_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UAbilityWheel(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 private: \
@@ -37,12 +37,12 @@ public: \
 	NO_API virtual ~UAbilityWheel();
 
 
-#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_AbilityWheel_h_12_PROLOG
-#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_AbilityWheel_h_15_GENERATED_BODY \
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_AbilityWheel_h_20_PROLOG
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_AbilityWheel_h_23_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_AbilityWheel_h_15_INCLASS_NO_PURE_DECLS \
-	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_AbilityWheel_h_15_ENHANCED_CONSTRUCTORS \
+	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_AbilityWheel_h_23_INCLASS_NO_PURE_DECLS \
+	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_AbilityWheel_h_23_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

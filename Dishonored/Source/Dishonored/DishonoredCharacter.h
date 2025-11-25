@@ -7,6 +7,7 @@
 #include "Logging/LogMacros.h"
 #include "AbilityManager_Component.h"
 #include "ManaBarWidget.h"
+#include "AbilityWheel.h"
 #include "DishonoredCharacter.generated.h"
 
 class UInputComponent;
@@ -70,6 +71,8 @@ public:
 
 	UPROPERTY() UManaBarWidget* manaBarWidget;
 
+	UPROPERTY() UAbilityWheel* abilityWheel;
+
 protected:
 	void BeginPlay();
 	virtual void Tick(float DeltaTime) override;
@@ -84,6 +87,8 @@ protected:
 	void StopAbility(const FInputActionValue& Value);
 
 	UPROPERTY(EditDefaultsOnly, Category = "UI") TSubclassOf<UManaBarWidget> manaBarWidgetClass;
+
+	UPROPERTY(EditDefaultsOnly, Category = "UI") TSubclassOf<UAbilityWheel> abilityWheelClass;
 
 protected:
 	// APawn interface

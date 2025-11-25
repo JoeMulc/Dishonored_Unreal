@@ -14,6 +14,7 @@ COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 DISHONORED_API UClass* Z_Construct_UClass_ADishonoredCharacter();
 DISHONORED_API UClass* Z_Construct_UClass_ADishonoredCharacter_NoRegister();
 DISHONORED_API UClass* Z_Construct_UClass_UAbilityManager_Component_NoRegister();
+DISHONORED_API UClass* Z_Construct_UClass_UAbilityWheel_NoRegister();
 DISHONORED_API UClass* Z_Construct_UClass_UManaBarWidget_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
@@ -135,7 +136,15 @@ struct Z_Construct_UClass_ADishonoredCharacter_Statics
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "DishonoredCharacter.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_abilityWheel_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "DishonoredCharacter.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_manaBarWidgetClass_MetaData[] = {
+		{ "Category", "UI" },
+		{ "ModuleRelativePath", "DishonoredCharacter.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_abilityWheelClass_MetaData[] = {
 		{ "Category", "UI" },
 		{ "ModuleRelativePath", "DishonoredCharacter.h" },
 	};
@@ -152,7 +161,9 @@ struct Z_Construct_UClass_ADishonoredCharacter_Statics
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_manaRegenRate;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_manaRegenCooldown;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_manaBarWidget;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_abilityWheel;
 	static const UECodeGen_Private::FClassPropertyParams NewProp_manaBarWidgetClass;
+	static const UECodeGen_Private::FClassPropertyParams NewProp_abilityWheelClass;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -172,7 +183,9 @@ const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADishonoredChar
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_manaRegenRate = { "manaRegenRate", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADishonoredCharacter, manaRegenRate), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_manaRegenRate_MetaData), NewProp_manaRegenRate_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_manaRegenCooldown = { "manaRegenCooldown", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADishonoredCharacter, manaRegenCooldown), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_manaRegenCooldown_MetaData), NewProp_manaRegenCooldown_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_manaBarWidget = { "manaBarWidget", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADishonoredCharacter, manaBarWidget), Z_Construct_UClass_UManaBarWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_manaBarWidget_MetaData), NewProp_manaBarWidget_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_abilityWheel = { "abilityWheel", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADishonoredCharacter, abilityWheel), Z_Construct_UClass_UAbilityWheel_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_abilityWheel_MetaData), NewProp_abilityWheel_MetaData) };
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_manaBarWidgetClass = { "manaBarWidgetClass", nullptr, (EPropertyFlags)0x0024080000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADishonoredCharacter, manaBarWidgetClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UManaBarWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_manaBarWidgetClass_MetaData), NewProp_manaBarWidgetClass_MetaData) };
+const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_abilityWheelClass = { "abilityWheelClass", nullptr, (EPropertyFlags)0x0024080000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADishonoredCharacter, abilityWheelClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UAbilityWheel_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_abilityWheelClass_MetaData), NewProp_abilityWheelClass_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADishonoredCharacter_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_Mesh1P,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_FirstPersonCameraComponent,
@@ -186,7 +199,9 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADishonor
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_manaRegenRate,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_manaRegenCooldown,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_manaBarWidget,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_abilityWheel,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_manaBarWidgetClass,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_abilityWheelClass,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ADishonoredCharacter_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ADishonoredCharacter_Statics::DependentSingletons[])() = {
@@ -229,10 +244,10 @@ ADishonoredCharacter::~ADishonoredCharacter() {}
 struct Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredCharacter_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ADishonoredCharacter, ADishonoredCharacter::StaticClass, TEXT("ADishonoredCharacter"), &Z_Registration_Info_UClass_ADishonoredCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADishonoredCharacter), 304243564U) },
+		{ Z_Construct_UClass_ADishonoredCharacter, ADishonoredCharacter::StaticClass, TEXT("ADishonoredCharacter"), &Z_Registration_Info_UClass_ADishonoredCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADishonoredCharacter), 2826804024U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredCharacter_h_2382017049(TEXT("/Script/Dishonored"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredCharacter_h_1743673162(TEXT("/Script/Dishonored"),
 	Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredCharacter_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
