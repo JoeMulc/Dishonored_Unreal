@@ -68,8 +68,9 @@ void ADishonoredCharacter::BeginPlay()
 
 			if (abilityWheel)
 			{
-				abilityWheel->InitButton(abilityManager->abilityArray[0]->abilityIcon);
+				abilityWheel->InitButton(abilityManager->abilityArray);
 				abilityWheel->AddToViewport();
+				abilityWheel->SetVisibility(ESlateVisibility::Hidden);
 			}
 		}
 	}
@@ -100,6 +101,10 @@ void ADishonoredCharacter::Tick(float DeltaTime)
 		manaBarWidget->UpdateManaBar(currentMana, maxMana);
 	}
 
+	if (abilityWheel && !abilityManager->abilityArray[currentAbilityIndex]->bAbilityActive)
+	{
+		currentAbilityIndex = abilityWheel->selectedIndex;
+	}
 	//UE_LOG(LogTemplateCharacter, Warning, TEXT("Mana : %f"), currentMana);
 }
 
@@ -136,6 +141,9 @@ void ADishonoredCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInpu
 
 		EnhancedInputComponent->BindAction(AbilityAction, ETriggerEvent::Started , this, &ADishonoredCharacter::StartAbility);
 		EnhancedInputComponent->BindAction(AbilityAction, ETriggerEvent::Completed, this, &ADishonoredCharacter::StopAbility);
+
+		EnhancedInputComponent->BindAction(AbilityWheelAction, ETriggerEvent::Started, this, &ADishonoredCharacter::OpenAbilityWheel);
+		EnhancedInputComponent->BindAction(AbilityWheelAction, ETriggerEvent::Completed, this, &ADishonoredCharacter::CloseAbilityWheel);
 	}
 	else
 	{
@@ -172,15 +180,46 @@ void ADishonoredCharacter::Look(const FInputActionValue& Value)
 
 void ADishonoredCharacter::StartAbility(const FInputActionValue& Value)
 {
-	if (abilityManager->abilityArray[0]) abilityManager->abilityArray[0]->Activate();
+	if (abilityManager->abilityArray[currentAbilityIndex]) abilityManager->abilityArray[currentAbilityIndex]->Activate();
 }
 
 void ADishonoredCharacter::StopAbility(const FInputActionValue& Value)
 {
-	if (abilityManager->abilityArray[0]) abilityManager->abilityArray[0]->Deactivate();
+	if (abilityManager->abilityArray[currentAbilityIndex]) abilityManager->abilityArray[currentAbilityIndex]->Deactivate();
 }
 
 bool ADishonoredCharacter::IsManaOnCoolDown()
 {
 	return currentManaRegenCooldown > 0;
+}
+
+void ADishonoredCharacter::OpenAbilityWheel(const FInputActionValue& Value)
+{
+	abilityWheel->SetVisibility(ESlateVisibility::Visible);
+
+	GetWorldSettings()->SetTimeDilation(0.1f);
+
+	APlayerController* playerController = Cast<APlayerController>(GetController());
+	if (playerController)
+	{
+		playerController->bShowMouseCursor = true;
+		int viewportSizeX, viewportSizeY;
+		playerController->GetViewportSize(viewportSizeX, viewportSizeY);
+		playerController->SetMouseLocation(viewportSizeX / 2, viewportSizeY / 2);
+		playerController->SetInputMode(FInputModeGameAndUI().SetLockMouseToViewportBehavior(EMouseLockMode::DoNotLock));
+	}
+}
+
+void ADishonoredCharacter::CloseAbilityWheel(const FInputActionValue& Value)
+{
+	abilityWheel->SetVisibility(ESlateVisibility::Hidden);
+
+	GetWorldSettings()->SetTimeDilation(1.f);
+
+	APlayerController* playerController = Cast<APlayerController>(GetController());
+	if (playerController)
+	{
+		playerController->bShowMouseCursor = false;
+		playerController->SetInputMode(FInputModeGameOnly());
+	}
 }

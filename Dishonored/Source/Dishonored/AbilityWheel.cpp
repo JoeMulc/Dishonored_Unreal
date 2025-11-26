@@ -1,53 +1,81 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "AbilityWheel.h"
-
-void UAbilityWheel::InitButton(UTexture2D* icon)
+#include "Math/UnrealMathUtility.h"
+void UAbilityWheel::InitButton(TArray<UAbility*> abilities)
 {
-    UE_LOG(LogTemp, Warning, TEXT("InitButton called"));
-
-    if (!icon)
+    UE_LOG(LogTemp, Warning, TEXT("InitButton called with %d abilities"), abilities.Num());
+    if (abilities.Num() == 0)
     {
-        UE_LOG(LogTemp, Error, TEXT("Icon is NULL!"));
+        UE_LOG(LogTemp, Error, TEXT("No abilities provided!"));
+        return;
+    }
+    UCanvasPanel* rootCanvas = Cast<UCanvasPanel>(GetRootWidget());
+    if (!rootCanvas)
+    {
+        UE_LOG(LogTemp, Error, TEXT("No root canvas!"));
         return;
     }
 
-    buttonIcon = icon;
+    FVector2D center = FVector2D(0.f, 0.f);
 
-    button = NewObject<UButton>(this);
-
-    buttonImage = NewObject<UImage>(this);
-
-    if (buttonImage && buttonIcon)
+    for (int32 i = 0; i < abilities.Num(); i++)
     {
-        buttonImage->SetBrushFromTexture(buttonIcon);
-        UE_LOG(LogTemp, Warning, TEXT("Texture set on image"));
-    }
-
-    if (button && buttonImage)
-    {
-        UButtonSlot* ButtonSlot = Cast<UButtonSlot>(button->AddChild(buttonImage));
-        if (ButtonSlot)
+        UAbility* ability = abilities[i];
+        if (!ability || !ability->abilityIcon)
         {
-            ButtonSlot->SetPadding(FMargin(0.f));
-            ButtonSlot->SetHorizontalAlignment(HAlign_Fill);
-            ButtonSlot->SetVerticalAlignment(VAlign_Fill);
+            UE_LOG(LogTemp, Warning, TEXT("Issue with ability or icon"));
+            continue;
+        }
+  
+        float angle = (2.f * PI * i) / abilities.Num();
+
+        FVector2D buttonPos;
+        buttonPos.X = center.X + FMath::Cos(angle) * radius - (buttonSize / 2.f);
+        buttonPos.Y = center.Y + FMath::Sin(angle) * radius - (buttonSize / 2.f);
+
+        UButton* newButton = NewObject<UButton>(this);
+        UImage* newImage = NewObject<UImage>(this);
+
+        if (newButton && newImage)
+        {
+
+            newImage->SetBrushFromTexture(ability->abilityIcon);
+
+            UButtonSlot* buttonSlot = Cast<UButtonSlot>(newButton->AddChild(newImage));
+            if (buttonSlot)
+            {
+                buttonSlot->SetPadding(FMargin(0.f));
+                buttonSlot->SetHorizontalAlignment(HAlign_Fill);
+                buttonSlot->SetVerticalAlignment(VAlign_Fill);
+            }
+
+            UCanvasPanelSlot* canvasSlot = rootCanvas->AddChildToCanvas(newButton);
+            if (canvasSlot)
+            {
+                canvasSlot->SetSize(FVector2D(buttonSize, buttonSize));
+                canvasSlot->SetPosition(buttonPos);
+                canvasSlot->SetAnchors(FAnchors(0.5f, 0.5f, 0.5f, 0.5f));
+                canvasSlot->SetAlignment(FVector2D(0.5f, 0.5f));
+            }
+            newButton->OnHovered.AddDynamic(this, &UAbilityWheel::OnButtonHovered);
+            newButton->OnUnhovered.AddDynamic(this, &UAbilityWheel::OnButtonUnhovered);
+
+            buttons.Add(newButton);
+            storedAbilities.Add(ability);
         }
     }
+}
+void UAbilityWheel::OnButtonHovered()
+{
+    UE_LOG(LogTemp, Warning, TEXT("Hovered!"));
 
-    if (UCanvasPanel* RootCanvas = Cast<UCanvasPanel>(GetRootWidget()))
+    for (int i = 0; i < buttons.Num();  i++)
     {
-        UE_LOG(LogTemp, Warning, TEXT("Adding to canvas"));
-        UCanvasPanelSlot* CanvasSlot = RootCanvas->AddChildToCanvas(button);
-        if (CanvasSlot)
-        {
-            CanvasSlot->SetSize(FVector2D(150.f, 125.f));
-            CanvasSlot->SetPosition(FVector2D(100.f, 100.f));
-        }
+        if (buttons[i]->IsHovered()) hoveredIndex = i;
     }
-    else
-    {
-        UE_LOG(LogTemp, Error, TEXT("No root canvas!"));
-    }
+}
+void UAbilityWheel::OnButtonUnhovered()
+{
+    UE_LOG(LogTemp, Warning, TEXT("Unhovered!"));
+    selectedIndex = hoveredIndex;
 }

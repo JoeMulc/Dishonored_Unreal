@@ -35,6 +35,8 @@ public:
 
 	UPROPERTY(EditAnywhere) UTexture2D* abilityIcon;
 
+	bool bAbilityActive = false;
+
 protected:
 	bool doTick = false;
 

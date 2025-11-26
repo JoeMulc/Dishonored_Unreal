@@ -50,6 +50,9 @@ class ADishonoredCharacter : public ACharacter
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* AbilityAction;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	UInputAction* AbilityWheelAction;
+
 	/** Look Input Action */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	class UInputAction* LookAction;
@@ -86,10 +89,13 @@ protected:
 	void StartAbility(const FInputActionValue& Value);
 	void StopAbility(const FInputActionValue& Value);
 
+	void OpenAbilityWheel(const FInputActionValue& Value);
+	void CloseAbilityWheel(const FInputActionValue& Value);
+
 	UPROPERTY(EditDefaultsOnly, Category = "UI") TSubclassOf<UManaBarWidget> manaBarWidgetClass;
 
 	UPROPERTY(EditDefaultsOnly, Category = "UI") TSubclassOf<UAbilityWheel> abilityWheelClass;
-
+	int currentAbilityIndex;
 protected:
 	// APawn interface
 	virtual void NotifyControllerChanged() override;

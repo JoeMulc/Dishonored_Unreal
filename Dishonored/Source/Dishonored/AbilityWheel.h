@@ -29,5 +29,20 @@ protected:
 	UImage* buttonImage;
 
 public:
-	void InitButton(UTexture2D* icon);
+	void InitButton(TArray<UAbility*> abilities);
+
+	UPROPERTY(EditAnywhere) float radius = 400.f;
+	UPROPERTY(EditAnywhere) float buttonSize = 125.f;
+
+	TArray<UAbility*> storedAbilities;
+	TArray<UButton*> buttons;
+
+	int selectedIndex = 0;
+
+	UFUNCTION() void OnButtonHovered();
+	UFUNCTION() void OnButtonUnhovered();
+
+private:
+
+	int hoveredIndex = -1;
 };

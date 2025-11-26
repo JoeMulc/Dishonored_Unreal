@@ -52,8 +52,9 @@ void UBlink_Ability::Initialize()
 
 void UBlink_Ability::Activate()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Ability activated!"));
+	UE_LOG(LogTemp, Warning, TEXT("Blink activated!"));
 	doTick = true;
+	bAbilityActive = true;
 
 	activeBlinkVFX = UNiagaraFunctionLibrary::SpawnSystemAtLocation(
 		GetWorld(),
@@ -69,7 +70,7 @@ void UBlink_Ability::Activate()
 
 void UBlink_Ability::Deactivate()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Ability deactivated!"));
+	UE_LOG(LogTemp, Warning, TEXT("Blink deactivated!"));
 	doTick = false;
 
 	if (activeBlinkVFX)
@@ -207,6 +208,7 @@ void  UBlink_Ability::BlinkTimelineFinished()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Blink Finished!"));
 	bIsBlinking = false;
+	bAbilityActive = false;
 
 	characterRef->SetActorLocation(blinkLocation);
 

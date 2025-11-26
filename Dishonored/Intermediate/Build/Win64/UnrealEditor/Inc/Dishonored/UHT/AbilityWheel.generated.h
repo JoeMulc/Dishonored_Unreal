@@ -14,6 +14,11 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define DISHONORED_AbilityWheel_generated_h
 
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_AbilityWheel_h_23_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execOnButtonUnhovered); \
+	DECLARE_FUNCTION(execOnButtonHovered);
+
+
 #define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_AbilityWheel_h_23_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUAbilityWheel(); \
@@ -41,6 +46,7 @@ public: \
 #define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_AbilityWheel_h_23_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
+	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_AbilityWheel_h_23_RPC_WRAPPERS_NO_PURE_DECLS \
 	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_AbilityWheel_h_23_INCLASS_NO_PURE_DECLS \
 	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_AbilityWheel_h_23_ENHANCED_CONSTRUCTORS \
 private: \
