@@ -21,6 +21,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite) TArray<TSubclassOf<UAbility>> startingAbilityArray;
 	UPROPERTY(BlueprintReadOnly) TArray<UAbility*> abilityArray;
 
+	bool IsBendingTime();
+	bool IsBlinking();
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;

@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "Ability.h"
+#include "GameFramework/WorldSettings.h"
+#include "GameFramework/CharacterMovementComponent.h"
 #include "TimeBend_Ability.generated.h"
 
 /**
@@ -20,5 +22,6 @@ public:
 	virtual void Initialize();
 	virtual void Activate();
 	virtual void Deactivate();
-	
+
+	virtual void Tick(float DeltaTime) override;
 };

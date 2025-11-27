@@ -101,10 +101,11 @@ void ADishonoredCharacter::Tick(float DeltaTime)
 		manaBarWidget->UpdateManaBar(currentMana, maxMana);
 	}
 
-	if (abilityWheel && !abilityManager->abilityArray[currentAbilityIndex]->bAbilityActive)
+	if (abilityWheel && !abilityManager->IsBlinking())
 	{
 		currentAbilityIndex = abilityWheel->selectedIndex;
 	}
+
 	//UE_LOG(LogTemplateCharacter, Warning, TEXT("Mana : %f"), currentMana);
 }
 
@@ -195,9 +196,10 @@ bool ADishonoredCharacter::IsManaOnCoolDown()
 
 void ADishonoredCharacter::OpenAbilityWheel(const FInputActionValue& Value)
 {
+
 	abilityWheel->SetVisibility(ESlateVisibility::Visible);
 
-	GetWorldSettings()->SetTimeDilation(0.1f);
+	if (!abilityManager->IsBendingTime())  GetWorldSettings()->SetTimeDilation(0.1f);
 
 	APlayerController* playerController = Cast<APlayerController>(GetController());
 	if (playerController)
@@ -214,7 +216,7 @@ void ADishonoredCharacter::CloseAbilityWheel(const FInputActionValue& Value)
 {
 	abilityWheel->SetVisibility(ESlateVisibility::Hidden);
 
-	GetWorldSettings()->SetTimeDilation(1.f);
+	if (!abilityManager->IsBendingTime()) GetWorldSettings()->SetTimeDilation(1.f);
 
 	APlayerController* playerController = Cast<APlayerController>(GetController());
 	if (playerController)

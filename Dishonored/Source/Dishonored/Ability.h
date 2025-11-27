@@ -32,6 +32,9 @@ public:
 
 	//Cooldown
 	bool IsOnCooldown();
+	void TakePlayerMana(float cost);
+
+	FName name;
 
 	UPROPERTY(EditAnywhere) UTexture2D* abilityIcon;
 
@@ -45,6 +48,5 @@ protected:
 
 	UPROPERTY(EditAnywhere) float manaCost = 0.f;
 
-	UPROPERTY(EditAnywhere) FName name;
 
 };

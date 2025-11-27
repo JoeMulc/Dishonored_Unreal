@@ -84,7 +84,7 @@ void UBlink_Ability::Deactivate()
 	{
 		ExecuteBlink();
 		currentCooldown = cooldown;
-		characterRef->currentMana = characterRef->currentMana - manaCost;
+		TakePlayerMana(manaCost);
 		characterRef->manaBarWidget->UpdateManaBar(characterRef->currentMana, characterRef->maxMana);
 		characterRef->currentManaRegenCooldown = characterRef->manaRegenCooldown;
 	}

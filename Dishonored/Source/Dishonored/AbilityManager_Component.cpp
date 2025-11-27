@@ -62,5 +62,29 @@ void UAbilityManager_Component::TickComponent(float DeltaTime, ELevelTick TickTy
 	// ...
 }
 
+//THIS NEEDS TO BE TEMP - GONNA CAUSE ERRORS IF NAME IS EVER CHANGED - NOT A GREAT SOLUTION JOE COME ON G
+bool UAbilityManager_Component::IsBendingTime()
+{
+	for (UAbility* ability : abilityArray)
+	{
+		if (ability->name == "TimeBend" && ability->bAbilityActive)
+		{
+			return true;
+		}
+	}
 
+	return false;
+}
 
+bool UAbilityManager_Component::IsBlinking() 
+{
+	for (UAbility* ability : abilityArray)
+	{
+		if (ability->name == "Blink" && ability->bAbilityActive)
+		{
+			return true;
+		}
+	}
+
+	return false;
+}

@@ -50,15 +50,10 @@ struct Z_Construct_UClass_UAbility_Statics
 		{ "Category", "Ability" },
 		{ "ModuleRelativePath", "Ability.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_name_MetaData[] = {
-		{ "Category", "Ability" },
-		{ "ModuleRelativePath", "Ability.h" },
-	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_abilityIcon;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_cooldown;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_manaCost;
-	static const UECodeGen_Private::FNamePropertyParams NewProp_name;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -69,12 +64,10 @@ struct Z_Construct_UClass_UAbility_Statics
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAbility_Statics::NewProp_abilityIcon = { "abilityIcon", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAbility, abilityIcon), Z_Construct_UClass_UTexture2D_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_abilityIcon_MetaData), NewProp_abilityIcon_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UAbility_Statics::NewProp_cooldown = { "cooldown", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAbility, cooldown), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_cooldown_MetaData), NewProp_cooldown_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UAbility_Statics::NewProp_manaCost = { "manaCost", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAbility, manaCost), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_manaCost_MetaData), NewProp_manaCost_MetaData) };
-const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_UAbility_Statics::NewProp_name = { "name", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAbility, name), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_name_MetaData), NewProp_name_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UAbility_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbility_Statics::NewProp_abilityIcon,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbility_Statics::NewProp_cooldown,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbility_Statics::NewProp_manaCost,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbility_Statics::NewProp_name,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UAbility_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UAbility_Statics::DependentSingletons[])() = {
@@ -117,10 +110,10 @@ UAbility::~UAbility() {}
 struct Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Ability_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UAbility, UAbility::StaticClass, TEXT("UAbility"), &Z_Registration_Info_UClass_UAbility, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbility), 3556740883U) },
+		{ Z_Construct_UClass_UAbility, UAbility::StaticClass, TEXT("UAbility"), &Z_Registration_Info_UClass_UAbility, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbility), 2254492268U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Ability_h_1791884588(TEXT("/Script/Dishonored"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Ability_h_1745206430(TEXT("/Script/Dishonored"),
 	Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Ability_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Ability_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -52,3 +52,8 @@ bool UAbility::IsOnCooldown()
 {
     return currentCooldown > 0.f;
 }
+
+void UAbility::TakePlayerMana(float cost)
+{
+    characterRef->currentMana = characterRef->currentMana - cost;
+}
