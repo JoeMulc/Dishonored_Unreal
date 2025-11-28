@@ -6,6 +6,7 @@
 #include "Ability.h"
 #include "GameFramework/WorldSettings.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Camera/CameraComponent.h"
 #include "TimeBend_Ability.generated.h"
 
 /**
@@ -24,4 +25,13 @@ public:
 	virtual void Deactivate();
 
 	virtual void Tick(float DeltaTime) override;
+
+protected:
+
+	void SetGrayscale(bool bEnable);
+	float currentSaturation = 1.f;
+	float targetSaturation = 1.f;
+
+	UPROPERTY(EditAnywhere) float timeSlowPercentage = 10.f;
+
 };
