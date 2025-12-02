@@ -93,7 +93,7 @@ void UTimeBend_Ability::Tick(float DeltaTime)
 	//Grayscaling
 	if (currentSaturation != targetSaturation)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("GrayScaling"));
+		//UE_LOG(LogTemp, Warning, TEXT("GrayScaling"));
 		UCameraComponent* camera = characterRef->GetFirstPersonCameraComponent();
 		if (!camera) return;
 

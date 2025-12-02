@@ -108,5 +108,11 @@
     <ClCompile Include="..\..\Source\Dishonored\TimeBend_Ability.h">
       <Filter>Source\Dishonored</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Dishonored\WindBlast_Ability.cpp">
+      <Filter>Source\Dishonored</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Dishonored\WindBlast_Ability.h">
+      <Filter>Source\Dishonored</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
