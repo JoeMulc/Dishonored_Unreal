@@ -1,10 +1,10 @@
-Log started at 12/02/2025 16:38:00 (2025-12-02T16:38:00Z)
+Log started at 12/06/2025 19:28:24 (2025-12-06T19:28:24Z)
 No config file at C:\ProgramData\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
 No config file at C:\Users\Joe\AppData\Local\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
 No config file at C:\Users\Joe\Documents\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
 Configuration will be read from:
   C:\Users\Joe\AppData\Roaming\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
-Log file: D:\Unreal\Dishonored\Dishonored_Unreal\Dishonored\Saved\Logs\UnrealVersionSelector-2025.12.02-16.37.57.log
+Log file: D:\Unreal\Dishonored\Dishonored_Unreal\Dishonored\Saved\Logs\UnrealVersionSelector-2025.12.06-19.28.24.log
 
 Setting temp directory to 'C:\Users\Joe\AppData\Local\Temp\UnrealBuildTool\6e225b08'
     Registering build platform: UnrealBuildTool.AndroidPlatformFactory
@@ -3982,11 +3982,11 @@ Found 5 shared PCH headers (listed in order of preference):
 	Core
   CppStandard Cpp17 cannot use PCHUsage UseExplicitOrSharedPCHs. Overriding to NoPCHs for ACLPlugin
   CppStandard Cpp17 cannot use PCHUsage UseExplicitOrSharedPCHs. Overriding to NoPCHs for ACLPluginEditor
+  CppStandard Cpp17 cannot use PCHUsage UseExplicitOrSharedPCHs. Overriding to NoPCHs for UnrealUSDWrapper
+  CppStandard Cpp17 cannot use PCHUsage UseExplicitOrSharedPCHs. Overriding to NoPCHs for ChaosCachingUSD
   CppStandard Cpp17 cannot use PCHUsage UseExplicitOrSharedPCHs. Overriding to NoPCHs for TraceAnalysis
   CppStandard Cpp17 cannot use PCHUsage UseExplicitOrSharedPCHs. Overriding to NoPCHs for LiveCodingServer
-  CppStandard Cpp17 cannot use PCHUsage UseExplicitOrSharedPCHs. Overriding to NoPCHs for ChaosCachingUSD
   CppStandard Cpp17 cannot use PCHUsage UseExplicitOrSharedPCHs. Overriding to NoPCHs for NNERuntimeRDG
-  CppStandard Cpp17 cannot use PCHUsage UseExplicitOrSharedPCHs. Overriding to NoPCHs for UnrealUSDWrapper
   CppStandard Cpp17 cannot use PCHUsage UseExplicitOrSharedPCHs. Overriding to NoPCHs for Reflex
 @progress 'Binding IntelliSense data...' 50%
 Found target: DishonoredEditor
@@ -4403,10 +4403,10 @@ Skipped saving .vsconfig because contents haven't changed.
 Project generation complete (2 generated, 50 imported)
 
 Generating QueryTargets data for editor...
-Total execution time: 91.57 seconds
+Total execution time: 44.41 seconds
 WriteFileIfChanged() wrote 32 changed files of 1799 requested writes.
 Timeline:
 
 [ 0.000]
-[ 0.000](+91.576) <unknown>
-[91.576]
+[ 0.000](+44.415) <unknown>
+[44.415]

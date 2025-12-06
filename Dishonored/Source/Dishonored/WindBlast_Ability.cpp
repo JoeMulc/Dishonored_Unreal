@@ -100,7 +100,7 @@ void UWindBlast_Ability::BlastObjects(TArray<AActor*> actors)
         UPrimitiveComponent* rootComp = Cast<UPrimitiveComponent>(actor->GetRootComponent());
         if (rootComp && rootComp->IsSimulatingPhysics())
         {
-            FVector end = actor->GetActorLocation() + (playerCamera->GetUpVector() * windBlastForce / 10); // Adds more of a arc to the force - not sure if i like
+            FVector end = actor->GetActorLocation() + (playerCamera->GetUpVector() * windBlastForce / 10); // Adds more of an arc to the force - not sure if i like
             FVector force = (end - start).GetSafeNormal() * windBlastForce;
             rootComp->AddImpulse(force, NAME_None, true);
         }
