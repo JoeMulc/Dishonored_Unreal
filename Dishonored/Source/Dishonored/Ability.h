@@ -22,6 +22,7 @@ public:
 	virtual void Initialize();
 	virtual void Activate();
 	virtual void Deactivate();
+	virtual void DestroyVFX();
 	class ADishonoredCharacter* characterRef;
 
 	//Tick

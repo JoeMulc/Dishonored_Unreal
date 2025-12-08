@@ -57,3 +57,8 @@ void UAbility::TakePlayerMana(float cost)
 {
     characterRef->currentMana = characterRef->currentMana - cost;
 }
+
+void UAbility::DestroyVFX()
+{
+
+}

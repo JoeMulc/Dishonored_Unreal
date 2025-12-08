@@ -11,7 +11,8 @@ enum class EHighlightTypes : uint8
 {
 	defaultHighlight = 0 UMETA(DisplayName = "Default"),
 	collectibleHighlight = 1 UMETA(DisplayName = "Collectible"),
-	enemyHighlight = 2 UMETA(DisplayName = "Enemy")
+	enemyHighlight = 2 UMETA(DisplayName = "Enemy"),
+	objectiveHighlight = 3 UMETA(DisplayName = "Objective"),
 };
 
 

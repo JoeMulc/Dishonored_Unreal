@@ -32,7 +32,8 @@ public:
 	virtual void Deactivate();
 
 	void ExecuteBlink();
-	
+
+	virtual void DestroyVFX();
 
 	virtual void Tick(float DeltaTime) override;
 private:
@@ -67,4 +68,5 @@ private:
 
 	UFUNCTION() void BlinkTimelineUpdate(float alpha);
 	UFUNCTION() void BlinkTimelineFinished();
+
 };

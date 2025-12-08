@@ -149,6 +149,7 @@ void UBlink_Ability::Tick(float DeltaTime)
 	}
 
 
+
 	//Debug
 	//DrawDebugLine(
 	//	GetWorld(),
@@ -251,4 +252,14 @@ bool UBlink_Ability::WallTooClose()
 	);
 
 	return bWallTooClose;
+}
+
+void UBlink_Ability::DestroyVFX()
+{
+	if (activeBlinkVFX)
+	{
+		activeBlinkVFX->Deactivate();
+		activeBlinkVFX->DestroyComponent();
+		activeBlinkVFX = nullptr;
+	}
 }

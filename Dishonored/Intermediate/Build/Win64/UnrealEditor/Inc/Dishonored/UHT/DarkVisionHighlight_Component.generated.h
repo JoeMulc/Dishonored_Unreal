@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define DISHONORED_DarkVisionHighlight_Component_generated_h
 
-#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DarkVisionHighlight_Component_h_21_INCLASS_NO_PURE_DECLS \
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DarkVisionHighlight_Component_h_22_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUDarkVisionHighlight_Component(); \
 	friend struct Z_Construct_UClass_UDarkVisionHighlight_Component_Statics; \
@@ -23,7 +23,7 @@ public: \
 	DECLARE_SERIALIZER(UDarkVisionHighlight_Component)
 
 
-#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DarkVisionHighlight_Component_h_21_ENHANCED_CONSTRUCTORS \
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DarkVisionHighlight_Component_h_22_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	UDarkVisionHighlight_Component(UDarkVisionHighlight_Component&&); \
@@ -35,12 +35,12 @@ public: \
 	NO_API virtual ~UDarkVisionHighlight_Component();
 
 
-#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DarkVisionHighlight_Component_h_18_PROLOG
-#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DarkVisionHighlight_Component_h_21_GENERATED_BODY \
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DarkVisionHighlight_Component_h_19_PROLOG
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DarkVisionHighlight_Component_h_22_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DarkVisionHighlight_Component_h_21_INCLASS_NO_PURE_DECLS \
-	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DarkVisionHighlight_Component_h_21_ENHANCED_CONSTRUCTORS \
+	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DarkVisionHighlight_Component_h_22_INCLASS_NO_PURE_DECLS \
+	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DarkVisionHighlight_Component_h_22_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -54,7 +54,8 @@ template<> DISHONORED_API UClass* StaticClass<class UDarkVisionHighlight_Compone
 #define FOREACH_ENUM_EHIGHLIGHTTYPES(op) \
 	op(EHighlightTypes::defaultHighlight) \
 	op(EHighlightTypes::collectibleHighlight) \
-	op(EHighlightTypes::enemyHighlight) 
+	op(EHighlightTypes::enemyHighlight) \
+	op(EHighlightTypes::objectiveHighlight) 
 
 enum class EHighlightTypes : uint8;
 template<> struct TIsUEnumClass<EHighlightTypes> { enum { Value = true }; };

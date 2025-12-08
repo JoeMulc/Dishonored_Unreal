@@ -88,3 +88,14 @@ bool UAbilityManager_Component::IsBlinking()
 
 	return false;
 }
+
+void UAbilityManager_Component::OnAbilityChange()
+{
+	for (UAbility* ability : abilityArray)
+	{
+		if (ability->name == "Blink")
+		{
+			ability->DestroyVFX();
+		}
+	}
+}

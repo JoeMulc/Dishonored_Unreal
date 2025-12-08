@@ -187,6 +187,7 @@ void ADishonoredCharacter::StartAbility(const FInputActionValue& Value)
 void ADishonoredCharacter::StopAbility(const FInputActionValue& Value)
 {
 	if (abilityManager->abilityArray[currentAbilityIndex]) abilityManager->abilityArray[currentAbilityIndex]->Deactivate();
+	abilityManager->OnAbilityChange();
 }
 
 bool ADishonoredCharacter::IsManaOnCoolDown()

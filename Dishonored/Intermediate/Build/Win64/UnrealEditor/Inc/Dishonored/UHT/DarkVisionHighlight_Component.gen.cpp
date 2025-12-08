@@ -43,12 +43,15 @@ struct Z_Construct_UEnum_Dishonored_EHighlightTypes_Statics
 		{ "enemyHighlight.DisplayName", "Enemy" },
 		{ "enemyHighlight.Name", "EHighlightTypes::enemyHighlight" },
 		{ "ModuleRelativePath", "DarkVisionHighlight_Component.h" },
+		{ "objectiveHighlight.DisplayName", "Objective" },
+		{ "objectiveHighlight.Name", "EHighlightTypes::objectiveHighlight" },
 	};
 #endif // WITH_METADATA
 	static constexpr UECodeGen_Private::FEnumeratorParam Enumerators[] = {
 		{ "EHighlightTypes::defaultHighlight", (int64)EHighlightTypes::defaultHighlight },
 		{ "EHighlightTypes::collectibleHighlight", (int64)EHighlightTypes::collectibleHighlight },
 		{ "EHighlightTypes::enemyHighlight", (int64)EHighlightTypes::enemyHighlight },
+		{ "EHighlightTypes::objectiveHighlight", (int64)EHighlightTypes::objectiveHighlight },
 	};
 	static const UECodeGen_Private::FEnumParams EnumParams;
 };
@@ -107,7 +110,7 @@ struct Z_Construct_UClass_UDarkVisionHighlight_Component_Statics
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UDarkVisionHighlight_Component_Statics::NewProp_highlightType_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UDarkVisionHighlight_Component_Statics::NewProp_highlightType = { "highlightType", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UDarkVisionHighlight_Component, highlightType), Z_Construct_UEnum_Dishonored_EHighlightTypes, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_highlightType_MetaData), NewProp_highlightType_MetaData) }; // 2976853786
+const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UDarkVisionHighlight_Component_Statics::NewProp_highlightType = { "highlightType", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UDarkVisionHighlight_Component, highlightType), Z_Construct_UEnum_Dishonored_EHighlightTypes, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_highlightType_MetaData), NewProp_highlightType_MetaData) }; // 3573734279
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UDarkVisionHighlight_Component_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UDarkVisionHighlight_Component_Statics::NewProp_highlightType_Underlying,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UDarkVisionHighlight_Component_Statics::NewProp_highlightType,
@@ -153,13 +156,13 @@ UDarkVisionHighlight_Component::~UDarkVisionHighlight_Component() {}
 struct Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DarkVisionHighlight_Component_h_Statics
 {
 	static constexpr FEnumRegisterCompiledInInfo EnumInfo[] = {
-		{ EHighlightTypes_StaticEnum, TEXT("EHighlightTypes"), &Z_Registration_Info_UEnum_EHighlightTypes, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2976853786U) },
+		{ EHighlightTypes_StaticEnum, TEXT("EHighlightTypes"), &Z_Registration_Info_UEnum_EHighlightTypes, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3573734279U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UDarkVisionHighlight_Component, UDarkVisionHighlight_Component::StaticClass, TEXT("UDarkVisionHighlight_Component"), &Z_Registration_Info_UClass_UDarkVisionHighlight_Component, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UDarkVisionHighlight_Component), 3734427941U) },
+		{ Z_Construct_UClass_UDarkVisionHighlight_Component, UDarkVisionHighlight_Component::StaticClass, TEXT("UDarkVisionHighlight_Component"), &Z_Registration_Info_UClass_UDarkVisionHighlight_Component, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UDarkVisionHighlight_Component), 418955729U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DarkVisionHighlight_Component_h_2181759312(TEXT("/Script/Dishonored"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DarkVisionHighlight_Component_h_3402258041(TEXT("/Script/Dishonored"),
 	Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DarkVisionHighlight_Component_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DarkVisionHighlight_Component_h_Statics::ClassInfo),
 	nullptr, 0,
 	Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DarkVisionHighlight_Component_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DarkVisionHighlight_Component_h_Statics::EnumInfo));
