@@ -114,6 +114,12 @@
     <ClCompile Include="..\..\Source\Dishonored\ManaBarWidget.h">
       <Filter>Source\Dishonored</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Dishonored\Possesion_Ability.cpp">
+      <Filter>Source\Dishonored</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Dishonored\Possesion_Ability.h">
+      <Filter>Source\Dishonored</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Dishonored\TimeBend_Ability.cpp">
       <Filter>Source\Dishonored</Filter>
     </ClCompile>
