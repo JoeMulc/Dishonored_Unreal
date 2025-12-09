@@ -108,6 +108,12 @@
     <ClCompile Include="..\..\Source\Dishonored\DishonoredWeaponComponent.h">
       <Filter>Source\Dishonored</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Dishonored\Enemy_Human_Character.cpp">
+      <Filter>Source\Dishonored</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Dishonored\Enemy_Human_Character.h">
+      <Filter>Source\Dishonored</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Dishonored\ManaBarWidget.cpp">
       <Filter>Source\Dishonored</Filter>
     </ClCompile>

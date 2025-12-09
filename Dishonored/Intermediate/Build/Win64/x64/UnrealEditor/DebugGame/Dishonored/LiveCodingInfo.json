@@ -2,12 +2,11 @@
 	"RemapUnityFiles": 
 	{
 		"Module.Dishonored.cpp.obj": [
-			"Possesion_Ability.gen.cpp.obj",
+			"Enemy_Human_Character.gen.cpp.obj",
 			"Ability.cpp.obj",
 			"AbilityManager_Component.cpp.obj",
 			"AbilityWheel.cpp.obj",
 			"Blink_Ability.cpp.obj",
-			"DarkVisionHighlight_Component.cpp.obj",
 			"DarkVision_Ability.cpp.obj",
 			"Dishonored.cpp.obj",
 			"DishonoredCharacter.cpp.obj",
@@ -31,9 +30,12 @@
 			"DishonoredProjectile.gen.cpp.obj",
 			"DishonoredWeaponComponent.gen.cpp.obj",
 			"ManaBarWidget.gen.cpp.obj",
+			"Possesion_Ability.gen.cpp.obj",
 			"TimeBend_Ability.gen.cpp.obj",
 			"WindBlast_Ability.gen.cpp.obj",
 			"PerModuleInline.gen.cpp.obj",
+			"DarkVisionHighlight_Component.cpp.obj",
+			"Enemy_Human_Character.cpp.obj",
 			"Possesion_Ability.cpp.obj"
 		]
 	}

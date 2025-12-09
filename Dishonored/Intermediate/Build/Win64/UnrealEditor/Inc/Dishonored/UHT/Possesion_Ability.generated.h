@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define DISHONORED_Possesion_Ability_generated_h
 
-#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Possesion_Ability_h_15_INCLASS_NO_PURE_DECLS \
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Possesion_Ability_h_26_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUPossesion_Ability(); \
 	friend struct Z_Construct_UClass_UPossesion_Ability_Statics; \
@@ -23,7 +23,7 @@ public: \
 	DECLARE_SERIALIZER(UPossesion_Ability)
 
 
-#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Possesion_Ability_h_15_ENHANCED_CONSTRUCTORS \
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Possesion_Ability_h_26_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	UPossesion_Ability(UPossesion_Ability&&); \
@@ -35,12 +35,12 @@ public: \
 	NO_API virtual ~UPossesion_Ability();
 
 
-#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Possesion_Ability_h_12_PROLOG
-#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Possesion_Ability_h_15_GENERATED_BODY \
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Possesion_Ability_h_23_PROLOG
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Possesion_Ability_h_26_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Possesion_Ability_h_15_INCLASS_NO_PURE_DECLS \
-	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Possesion_Ability_h_15_ENHANCED_CONSTRUCTORS \
+	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Possesion_Ability_h_26_INCLASS_NO_PURE_DECLS \
+	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Possesion_Ability_h_26_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

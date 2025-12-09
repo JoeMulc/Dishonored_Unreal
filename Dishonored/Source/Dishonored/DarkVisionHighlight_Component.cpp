@@ -19,17 +19,21 @@ void UDarkVisionHighlight_Component::BeginPlay()
 {
 	Super::BeginPlay();
 
-	AActor* owningActor = GetOwner();
-	if (owningActor)
-	{
-		UStaticMeshComponent* mesh = owningActor->FindComponentByClass<UStaticMeshComponent>();
-		if (mesh)
-		{
-			mesh->SetRenderCustomDepth(true);
-			mesh->SetCustomDepthStencilValue(static_cast<int32>(highlightType));
-		}
-	}
-	
+    AActor* owningActor = GetOwner();
+    if (owningActor)
+    {
+        TArray<UMeshComponent*> meshComponents;
+        owningActor->GetComponents<UMeshComponent>(meshComponents);
+
+        for (UMeshComponent* mesh : meshComponents)
+        {
+            if (mesh)
+            {
+                mesh->SetRenderCustomDepth(true);
+                mesh->SetCustomDepthStencilValue(static_cast<int32>(highlightType));
+            }
+        }
+    }
 }
 
 
