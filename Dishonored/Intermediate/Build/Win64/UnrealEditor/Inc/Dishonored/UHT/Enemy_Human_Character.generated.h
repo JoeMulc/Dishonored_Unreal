@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define DISHONORED_Enemy_Human_Character_generated_h
 
-#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Enemy_Human_Character_h_20_INCLASS_NO_PURE_DECLS \
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Enemy_Human_Character_h_22_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAEnemy_Human_Character(); \
 	friend struct Z_Construct_UClass_AEnemy_Human_Character_Statics; \
@@ -23,7 +23,7 @@ public: \
 	DECLARE_SERIALIZER(AEnemy_Human_Character)
 
 
-#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Enemy_Human_Character_h_20_ENHANCED_CONSTRUCTORS \
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Enemy_Human_Character_h_22_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	AEnemy_Human_Character(AEnemy_Human_Character&&); \
@@ -35,12 +35,12 @@ public: \
 	NO_API virtual ~AEnemy_Human_Character();
 
 
-#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Enemy_Human_Character_h_17_PROLOG
-#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Enemy_Human_Character_h_20_GENERATED_BODY \
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Enemy_Human_Character_h_19_PROLOG
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Enemy_Human_Character_h_22_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Enemy_Human_Character_h_20_INCLASS_NO_PURE_DECLS \
-	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Enemy_Human_Character_h_20_ENHANCED_CONSTRUCTORS \
+	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Enemy_Human_Character_h_22_INCLASS_NO_PURE_DECLS \
+	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Enemy_Human_Character_h_22_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

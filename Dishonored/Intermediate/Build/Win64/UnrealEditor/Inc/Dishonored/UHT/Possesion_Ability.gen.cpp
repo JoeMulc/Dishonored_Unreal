@@ -13,6 +13,8 @@ void EmptyLinkFunctionForGeneratedCodePossesion_Ability() {}
 DISHONORED_API UClass* Z_Construct_UClass_UAbility();
 DISHONORED_API UClass* Z_Construct_UClass_UPossesion_Ability();
 DISHONORED_API UClass* Z_Construct_UClass_UPossesion_Ability_NoRegister();
+NIAGARA_API UClass* Z_Construct_UClass_UNiagaraComponent_NoRegister();
+NIAGARA_API UClass* Z_Construct_UClass_UNiagaraSystem_NoRegister();
 UPackage* Z_Construct_UPackage__Script_Dishonored();
 // End Cross Module References
 
@@ -39,8 +41,18 @@ struct Z_Construct_UClass_UPossesion_Ability_Statics
 		{ "Category", "Possesion_Ability" },
 		{ "ModuleRelativePath", "Possesion_Ability.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_possesionVFX_MetaData[] = {
+		{ "Category", "Possesion_Ability" },
+		{ "ModuleRelativePath", "Possesion_Ability.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_activePossesionVFX_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Possesion_Ability.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_possesionDistance;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_possesionVFX;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_activePossesionVFX;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -49,8 +61,12 @@ struct Z_Construct_UClass_UPossesion_Ability_Statics
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UPossesion_Ability_Statics::NewProp_possesionDistance = { "possesionDistance", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UPossesion_Ability, possesionDistance), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_possesionDistance_MetaData), NewProp_possesionDistance_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPossesion_Ability_Statics::NewProp_possesionVFX = { "possesionVFX", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UPossesion_Ability, possesionVFX), Z_Construct_UClass_UNiagaraSystem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_possesionVFX_MetaData), NewProp_possesionVFX_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPossesion_Ability_Statics::NewProp_activePossesionVFX = { "activePossesionVFX", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UPossesion_Ability, activePossesionVFX), Z_Construct_UClass_UNiagaraComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_activePossesionVFX_MetaData), NewProp_activePossesionVFX_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UPossesion_Ability_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPossesion_Ability_Statics::NewProp_possesionDistance,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPossesion_Ability_Statics::NewProp_possesionVFX,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPossesion_Ability_Statics::NewProp_activePossesionVFX,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UPossesion_Ability_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UPossesion_Ability_Statics::DependentSingletons[])() = {
@@ -70,7 +86,7 @@ const UECodeGen_Private::FClassParams Z_Construct_UClass_UPossesion_Ability_Stat
 	0,
 	UE_ARRAY_COUNT(Z_Construct_UClass_UPossesion_Ability_Statics::PropPointers),
 	0,
-	0x001000A0u,
+	0x009000A0u,
 	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UPossesion_Ability_Statics::Class_MetaDataParams), Z_Construct_UClass_UPossesion_Ability_Statics::Class_MetaDataParams)
 };
 UClass* Z_Construct_UClass_UPossesion_Ability()
@@ -93,10 +109,10 @@ UPossesion_Ability::~UPossesion_Ability() {}
 struct Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Possesion_Ability_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UPossesion_Ability, UPossesion_Ability::StaticClass, TEXT("UPossesion_Ability"), &Z_Registration_Info_UClass_UPossesion_Ability, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPossesion_Ability), 4028809217U) },
+		{ Z_Construct_UClass_UPossesion_Ability, UPossesion_Ability::StaticClass, TEXT("UPossesion_Ability"), &Z_Registration_Info_UClass_UPossesion_Ability, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPossesion_Ability), 863760723U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Possesion_Ability_h_1718891759(TEXT("/Script/Dishonored"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Possesion_Ability_h_1625217957(TEXT("/Script/Dishonored"),
 	Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Possesion_Ability_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Possesion_Ability_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

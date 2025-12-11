@@ -9,6 +9,10 @@ UPossesion_Ability::UPossesion_Ability()
 	static ConstructorHelpers::FObjectFinder<UTexture2D> IconAsset(TEXT("/Script/Engine.Texture2D'/Game/FirstPerson/UI/PossesionIcon.PossesionIcon'"));
 	if (IconAsset.Succeeded()) abilityIcon = IconAsset.Object;
 
+	static ConstructorHelpers::FObjectFinder<UNiagaraSystem> possesionVFXAsset(TEXT("/Script/Niagara.NiagaraSystem'/Game/FirstPerson/Abilities/Blink/BlinkVFX.BlinkVFX'"));
+
+	if (possesionVFXAsset.Succeeded()) possesionVFX = possesionVFXAsset.Object;
+
 	name = "Possesion";
 	cooldown = 2.f;
 	manaCost = 75.f;
@@ -17,6 +21,20 @@ UPossesion_Ability::UPossesion_Ability()
 void UPossesion_Ability::Initialize()
 {
 	playerController = Cast<APlayerController>(characterRef->GetController());
+
+	activePossesionVFX = UNiagaraFunctionLibrary::SpawnSystemAtLocation(				//activate and set visibility
+		GetWorld(),
+		possesionVFX,
+		characterRef->GetActorLocation(),
+		FRotator::ZeroRotator,
+		FVector(1.0f),
+		true,
+		true,
+		ENCPoolMethod::None
+	);
+
+	if (activePossesionVFX) activePossesionVFX->SetVisibility(false);
+
 }
 
 void UPossesion_Ability::Activate()
@@ -25,6 +43,7 @@ void UPossesion_Ability::Activate()
 
 	doTick = true;
 
+	if (activePossesionVFX) activePossesionVFX->SetVisibility(true);
 }
 
 void UPossesion_Ability::Deactivate()
@@ -32,17 +51,41 @@ void UPossesion_Ability::Deactivate()
 	UE_LOG(LogTemp, Warning, TEXT("Possesion deactivated!"));
 
 	doTick = false;
+	if (activePossesionVFX) activePossesionVFX->SetVisibility(false);
+	
 
-	if (pawnToPosses)
+	if (pawnToPosses && characterRef->currentMana > manaCost)
 	{
-		if (characterRef->currentMana > manaCost)
-		{
-			TakePlayerMana(manaCost);
-			if (playerController) playerController->Possess(pawnToPosses);
-		}
-		
-	}
+		TakePlayerMana(manaCost);
 
+		if (playerController)
+		{
+			playerController->SetViewTargetWithBlend(
+				pawnToPosses,
+				0.5f,
+				EViewTargetBlendFunction::VTBlend_Cubic
+			);
+
+			//Delay possesion
+			FTimerHandle possessTimer;
+			GetWorld()->GetTimerManager().SetTimer(
+				possessTimer,
+				[this]()
+				{
+					characterRef->SetActorTickEnabled(false);
+					characterRef->SetActorHiddenInGame(true);
+					characterRef->SetActorEnableCollision(false);
+
+					if (playerController && pawnToPosses)
+					{
+						playerController->Possess(pawnToPosses);
+					}
+				},
+				0.5f,
+				false
+			);
+		}
+	}
 }
 
 void UPossesion_Ability::Tick(float DeltaTime) 
@@ -50,6 +93,7 @@ void UPossesion_Ability::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	if (!doTick) return;
+	
 
 	UCameraComponent* playerCamera = characterRef->GetFirstPersonCameraComponent();
 
@@ -79,8 +123,25 @@ void UPossesion_Ability::Tick(float DeltaTime)
 			if (hitPawn)
 			{
 				pawnToPosses = hitPawn;
-			}
+
+				UCameraComponent* targetCamera = hitPawn->FindComponentByClass<UCameraComponent>();
+
+				if (targetCamera && activePossesionVFX)
+				{
+					if (activePossesionVFX) activePossesionVFX->SetVisibility(true);
+					activePossesionVFX->SetWorldLocation(targetCamera->GetComponentLocation() - (targetCamera->GetUpVector() * 50));
+				}
+			}	
+		}
+		else
+		{
+			if (activePossesionVFX) activePossesionVFX->SetVisibility(false);
+			pawnToPosses = nullptr;
 		}
 	}
-
+	else
+	{
+		if (activePossesionVFX) activePossesionVFX->SetVisibility(false);
+		pawnToPosses = nullptr;
+	}
 }

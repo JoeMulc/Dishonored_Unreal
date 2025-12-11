@@ -40,4 +40,8 @@ private:
 	APawn* pawnToPosses;
 
 	APlayerController* playerController;
+
+	UPROPERTY(EditAnywhere) UNiagaraSystem* possesionVFX;
+
+	UPROPERTY() UNiagaraComponent* activePossesionVFX;
 };

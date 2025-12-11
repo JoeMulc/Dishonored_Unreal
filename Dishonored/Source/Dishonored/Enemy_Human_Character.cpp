@@ -30,7 +30,7 @@ AEnemy_Human_Character::AEnemy_Human_Character()
 void AEnemy_Human_Character::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	playerCharacter = Cast<ADishonoredCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
 }
 
 // Called every frame
@@ -57,6 +57,9 @@ void AEnemy_Human_Character::SetupPlayerInputComponent(UInputComponent* PlayerIn
 
 		// Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AEnemy_Human_Character::Look);
+
+		//Disposses
+		EnhancedInputComponent->BindAction(DispossesAction, ETriggerEvent::Completed, this, &AEnemy_Human_Character::Disposses);
 	}
 	else
 	{
@@ -89,4 +92,31 @@ void AEnemy_Human_Character::Look(const FInputActionValue& Value)
 		AddControllerYawInput(LookAxisVector.X);
 		AddControllerPitchInput(LookAxisVector.Y);
 	}
+}
+
+void AEnemy_Human_Character::Disposses(const FInputActionValue& Value)
+{
+	APlayerController* playerController = Cast<APlayerController>(GetController());
+
+	playerController->SetViewTargetWithBlend(
+		playerCharacter,
+		0.5f,
+		EViewTargetBlendFunction::VTBlend_Cubic
+	);
+
+	//Delay possesion
+	FTimerHandle possessTimer;
+	GetWorld()->GetTimerManager().SetTimer(
+		possessTimer,
+		[this, playerController]()
+		{
+			playerCharacter->SetActorTickEnabled(true);
+			playerCharacter->SetActorHiddenInGame(false);
+			playerCharacter->SetActorEnableCollision(true);
+
+			playerController->Possess(playerCharacter);
+		},
+		0.5f,
+		false
+	);
 }
