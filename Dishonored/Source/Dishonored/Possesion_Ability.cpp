@@ -9,7 +9,7 @@ UPossesion_Ability::UPossesion_Ability()
 	static ConstructorHelpers::FObjectFinder<UTexture2D> IconAsset(TEXT("/Script/Engine.Texture2D'/Game/FirstPerson/UI/PossesionIcon.PossesionIcon'"));
 	if (IconAsset.Succeeded()) abilityIcon = IconAsset.Object;
 
-	static ConstructorHelpers::FObjectFinder<UNiagaraSystem> possesionVFXAsset(TEXT("/Script/Niagara.NiagaraSystem'/Game/FirstPerson/Abilities/Blink/BlinkVFX.BlinkVFX'"));
+	static ConstructorHelpers::FObjectFinder<UNiagaraSystem> possesionVFXAsset(TEXT("/Script/Niagara.NiagaraSystem'/Game/FirstPerson/Abilities/Possesion/PossesionHighlight_VFX.PossesionHighlight_VFX'"));
 
 	if (possesionVFXAsset.Succeeded()) possesionVFX = possesionVFXAsset.Object;
 
@@ -60,25 +60,38 @@ void UPossesion_Ability::Deactivate()
 
 		if (playerController)
 		{
+			UCameraComponent* targetCamera = pawnToPosses->FindComponentByClass<UCameraComponent>();
+			FRotator targetRotation = targetCamera->GetComponentRotation();
+
 			playerController->SetViewTargetWithBlend(
 				pawnToPosses,
 				0.5f,
 				EViewTargetBlendFunction::VTBlend_Cubic
 			);
 
+			if (UCharacterMovementComponent* movementComp = characterRef->GetCharacterMovement())
+			{
+				movementComp->SetComponentTickEnabled(false);
+				movementComp->StopMovementImmediately();
+				movementComp->DisableMovement();
+			}
+
+			characterRef->SetActorTickEnabled(false);
+			characterRef->SetActorHiddenInGame(true);
+			characterRef->SetActorEnableCollision(false);
+			characterRef->DisableInput(playerController);
+
 			//Delay possesion
 			FTimerHandle possessTimer;
 			GetWorld()->GetTimerManager().SetTimer(
 				possessTimer,
-				[this]()
+				[this, targetRotation]()
 				{
-					characterRef->SetActorTickEnabled(false);
-					characterRef->SetActorHiddenInGame(true);
-					characterRef->SetActorEnableCollision(false);
-
 					if (playerController && pawnToPosses)
 					{
 						playerController->Possess(pawnToPosses);
+						UE_LOG(LogTemp, Warning, TEXT("I amn losing my mind !"));
+						playerController->SetControlRotation(targetRotation);
 					}
 				},
 				0.5f,

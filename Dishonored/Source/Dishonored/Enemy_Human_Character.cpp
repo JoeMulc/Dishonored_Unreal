@@ -2,6 +2,7 @@
 
 
 #include "Enemy_Human_Character.h"
+#include "GameFramework/CharacterMovementComponent.h"
 
 // Sets default values
 AEnemy_Human_Character::AEnemy_Human_Character()
@@ -97,6 +98,9 @@ void AEnemy_Human_Character::Look(const FInputActionValue& Value)
 void AEnemy_Human_Character::Disposses(const FInputActionValue& Value)
 {
 	APlayerController* playerController = Cast<APlayerController>(GetController());
+	
+	UCameraComponent* targetCamera = playerCharacter->FindComponentByClass<UCameraComponent>();
+	FRotator targetRotation = targetCamera->GetComponentRotation();
 
 	playerController->SetViewTargetWithBlend(
 		playerCharacter,
@@ -108,13 +112,20 @@ void AEnemy_Human_Character::Disposses(const FInputActionValue& Value)
 	FTimerHandle possessTimer;
 	GetWorld()->GetTimerManager().SetTimer(
 		possessTimer,
-		[this, playerController]()
+		[this, playerController, targetRotation]()
 		{
+			if (UCharacterMovementComponent* movementComp = playerCharacter->GetCharacterMovement())
+			{
+				movementComp->SetMovementMode(MOVE_Walking);
+				movementComp->SetComponentTickEnabled(true);
+			}
 			playerCharacter->SetActorTickEnabled(true);
 			playerCharacter->SetActorHiddenInGame(false);
 			playerCharacter->SetActorEnableCollision(true);
 
 			playerController->Possess(playerCharacter);
+			playerCharacter->EnableInput(playerController);
+			playerController->SetControlRotation(targetRotation);
 		},
 		0.5f,
 		false
