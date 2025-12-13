@@ -90,7 +90,6 @@ void UPossesion_Ability::Deactivate()
 					if (playerController && pawnToPosses)
 					{
 						playerController->Possess(pawnToPosses);
-						UE_LOG(LogTemp, Warning, TEXT("I amn losing my mind !"));
 						playerController->SetControlRotation(targetRotation);
 					}
 				},

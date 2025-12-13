@@ -9,6 +9,10 @@
 #include "DrawDebugHelpers.h"
 #include "Engine/OverlapResult.h"
 #include "Camera/CameraComponent.h"
+#include "GameFramework/Character.h"
+#include "Components/SkeletalMeshComponent.h"
+#include "Components/CapsuleComponent.h"
+#include "GameFramework/CharacterMovementComponent.h"
 #include "WindBlast_Ability.generated.h"
 
 /**
@@ -35,4 +39,6 @@ private:
 	UPROPERTY(EditAnywhere) float windBlastForce = 1500.f;
 
 	void BlastObjects(TArray<AActor*> actors);
+
+	void BlastCharacter(ACharacter* character);
 };

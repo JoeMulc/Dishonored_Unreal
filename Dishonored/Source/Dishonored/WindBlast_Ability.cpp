@@ -21,7 +21,7 @@ void UWindBlast_Ability::Initialize()
 
 void UWindBlast_Ability::Activate()
 {
-	UE_LOG(LogTemp, Warning, TEXT("WindBlast activated!"));
+	UE_LOG(LogTemp, Warning, TEXT("---------------------WindBlast activated!---------------------"));
 
 	if (IsOnCooldown()) return;
 
@@ -41,7 +41,7 @@ void UWindBlast_Ability::Activate()
 
 void UWindBlast_Ability::Deactivate()
 {
-	UE_LOG(LogTemp, Warning, TEXT("WindBlast deactivated!"));
+	UE_LOG(LogTemp, Warning, TEXT("---------------------WindBlast deactivated!---------------------"));
 
 
 }
@@ -65,7 +65,7 @@ TArray<AActor*> UWindBlast_Ability::TraceForMovable()
         overlapResults,
         checkLocation,
         boxRotation,
-        ECC_Visibility,
+        ECC_PhysicsBody,
         FCollisionShape::MakeBox(boxHalfExtents),
         queryParams
     );
@@ -97,6 +97,14 @@ void UWindBlast_Ability::BlastObjects(TArray<AActor*> actors)
 
     for (AActor* actor : actors)
     {
+        //Blast for characters as they need extra logic
+        if (ACharacter* character = Cast<ACharacter>(actor))
+        {
+            BlastCharacter(character);
+            continue;
+        }
+
+        //Blast objects
         UPrimitiveComponent* rootComp = Cast<UPrimitiveComponent>(actor->GetRootComponent());
         if (rootComp && rootComp->IsSimulatingPhysics())
         {
@@ -105,4 +113,24 @@ void UWindBlast_Ability::BlastObjects(TArray<AActor*> actors)
             rootComp->AddImpulse(force, NAME_None, true);
         }
     }
+}
+
+void UWindBlast_Ability::BlastCharacter(ACharacter* character)
+{
+    UE_LOG(LogTemp, Warning, TEXT("Ragdollin character!"));
+
+    USkeletalMeshComponent* mesh = character->GetMesh();
+    UCharacterMovementComponent* movement = character->GetCharacterMovement();
+    UCapsuleComponent* capsule = character->GetCapsuleComponent();
+
+    UCameraComponent* playerCamera = characterRef->GetFirstPersonCameraComponent();
+    FVector start = playerCamera->GetComponentLocation();
+
+    movement->DisableMovement();
+    capsule->SetSimulatePhysics(true);
+    mesh->SetAllBodiesBelowSimulatePhysics(FName("pelvis"), true, true);
+
+    FVector end = character->GetActorLocation() + (playerCamera->GetUpVector() * windBlastForce / 10);              //reusing code but im too lazy to create the function rn this probs wont work anyway :(
+    FVector force = (end - start).GetSafeNormal() * windBlastForce * 10;
+    mesh->AddImpulse(force, NAME_None, true);
 }

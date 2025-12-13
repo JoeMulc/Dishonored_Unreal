@@ -19,7 +19,6 @@
 			"Possesion_Ability.gen.cpp.obj",
 			"TimeBend_Ability.gen.cpp.obj",
 			"WindBlast_Ability.gen.cpp.obj",
-			"PerModuleInline.gen.cpp.obj",
 			"Ability.cpp.obj",
 			"AbilityManager_Component.cpp.obj",
 			"AbilityWheel.cpp.obj",
@@ -32,11 +31,12 @@
 			"DishonoredPickUpComponent.cpp.obj",
 			"DishonoredProjectile.cpp.obj",
 			"DishonoredWeaponComponent.cpp.obj",
+			"Enemy_Human_Character.cpp.obj",
 			"ManaBarWidget.cpp.obj",
 			"TimeBend_Ability.cpp.obj",
-			"WindBlast_Ability.cpp.obj",
-			"Enemy_Human_Character.cpp.obj",
-			"Possesion_Ability.cpp.obj"
+			"PerModuleInline.gen.cpp.obj",
+			"Possesion_Ability.cpp.obj",
+			"WindBlast_Ability.cpp.obj"
 		]
 	}
 }

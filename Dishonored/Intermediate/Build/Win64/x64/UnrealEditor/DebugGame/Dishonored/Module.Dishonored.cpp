@@ -11,6 +11,6 @@
 #include "D:/Unreal/Dishonored/Dishonored_Unreal/Dishonored/Source/Dishonored/DishonoredPickUpComponent.cpp"
 #include "D:/Unreal/Dishonored/Dishonored_Unreal/Dishonored/Source/Dishonored/DishonoredProjectile.cpp"
 #include "D:/Unreal/Dishonored/Dishonored_Unreal/Dishonored/Source/Dishonored/DishonoredWeaponComponent.cpp"
+#include "D:/Unreal/Dishonored/Dishonored_Unreal/Dishonored/Source/Dishonored/Enemy_Human_Character.cpp"
 #include "D:/Unreal/Dishonored/Dishonored_Unreal/Dishonored/Source/Dishonored/ManaBarWidget.cpp"
 #include "D:/Unreal/Dishonored/Dishonored_Unreal/Dishonored/Source/Dishonored/TimeBend_Ability.cpp"
-#include "D:/Unreal/Dishonored/Dishonored_Unreal/Dishonored/Source/Dishonored/WindBlast_Ability.cpp"
