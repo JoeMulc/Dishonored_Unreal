@@ -13,6 +13,7 @@ void EmptyLinkFunctionForGeneratedCodeEnemy_Human_Character() {}
 DISHONORED_API UClass* Z_Construct_UClass_AEnemy_Human_Character();
 DISHONORED_API UClass* Z_Construct_UClass_AEnemy_Human_Character_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_ACharacter();
+ENGINE_API UClass* Z_Construct_UClass_UAnimSequence_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
 ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputAction_NoRegister();
@@ -116,6 +117,9 @@ struct Z_Construct_UClass_AEnemy_Human_Character_Statics
 		{ "ToolTip", "Look Input Action" },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_stumbleAnimation_MetaData[] = {
+		{ "ModuleRelativePath", "Enemy_Human_Character.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Mesh1P;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_FirstPersonCameraComponent;
@@ -124,6 +128,7 @@ struct Z_Construct_UClass_AEnemy_Human_Character_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_MoveAction;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_DispossesAction;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_LookAction;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_stumbleAnimation;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -138,6 +143,7 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEnemy_Human_C
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEnemy_Human_Character_Statics::NewProp_MoveAction = { "MoveAction", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AEnemy_Human_Character, MoveAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MoveAction_MetaData), NewProp_MoveAction_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEnemy_Human_Character_Statics::NewProp_DispossesAction = { "DispossesAction", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AEnemy_Human_Character, DispossesAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DispossesAction_MetaData), NewProp_DispossesAction_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEnemy_Human_Character_Statics::NewProp_LookAction = { "LookAction", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AEnemy_Human_Character, LookAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LookAction_MetaData), NewProp_LookAction_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEnemy_Human_Character_Statics::NewProp_stumbleAnimation = { "stumbleAnimation", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AEnemy_Human_Character, stumbleAnimation), Z_Construct_UClass_UAnimSequence_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_stumbleAnimation_MetaData), NewProp_stumbleAnimation_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AEnemy_Human_Character_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemy_Human_Character_Statics::NewProp_Mesh1P,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemy_Human_Character_Statics::NewProp_FirstPersonCameraComponent,
@@ -146,6 +152,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AEnemy_Hu
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemy_Human_Character_Statics::NewProp_MoveAction,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemy_Human_Character_Statics::NewProp_DispossesAction,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemy_Human_Character_Statics::NewProp_LookAction,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemy_Human_Character_Statics::NewProp_stumbleAnimation,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AEnemy_Human_Character_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AEnemy_Human_Character_Statics::DependentSingletons[])() = {
@@ -188,10 +195,10 @@ AEnemy_Human_Character::~AEnemy_Human_Character() {}
 struct Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Enemy_Human_Character_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AEnemy_Human_Character, AEnemy_Human_Character::StaticClass, TEXT("AEnemy_Human_Character"), &Z_Registration_Info_UClass_AEnemy_Human_Character, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEnemy_Human_Character), 1292870752U) },
+		{ Z_Construct_UClass_AEnemy_Human_Character, AEnemy_Human_Character::StaticClass, TEXT("AEnemy_Human_Character"), &Z_Registration_Info_UClass_AEnemy_Human_Character, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEnemy_Human_Character), 777663711U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Enemy_Human_Character_h_1583629003(TEXT("/Script/Dishonored"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Enemy_Human_Character_h_2597737783(TEXT("/Script/Dishonored"),
 	Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Enemy_Human_Character_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_Enemy_Human_Character_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

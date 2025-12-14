@@ -7,7 +7,7 @@
 // Sets default values
 AEnemy_Human_Character::AEnemy_Human_Character()
 {
- 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 	// Set size for collision capsule
@@ -23,6 +23,14 @@ AEnemy_Human_Character::AEnemy_Human_Character()
 	Mesh1P = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("CharacterMesh1P"));
 	Mesh1P->SetupAttachment(FirstPersonCameraComponent);
 	Mesh1P->SetRelativeLocation(FVector(-30.f, 0.f, -150.f));
+
+
+	static ConstructorHelpers::FObjectFinder<UAnimSequence> AnimAsset(TEXT("/Script/Engine.AnimSequence'/Game/Characters/Mannequins/Animations/Manny/Jogging_Stumble_Anim.Jogging_Stumble_Anim'"));
+
+	if (AnimAsset.Succeeded())
+	{
+		stumbleAnimation = AnimAsset.Object;
+	}
 
 	Tags.Add(FName("Posses"));
 }
@@ -98,9 +106,17 @@ void AEnemy_Human_Character::Look(const FInputActionValue& Value)
 void AEnemy_Human_Character::Disposses(const FInputActionValue& Value)
 {
 	APlayerController* playerController = Cast<APlayerController>(GetController());
-	
+	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	playerCharacter->SetActorLocation(GetActorLocation());
+	playerCharacter->SetActorRotation(GetActorRotation());
+
 	UCameraComponent* targetCamera = playerCharacter->FindComponentByClass<UCameraComponent>();
 	FRotator targetRotation = targetCamera->GetComponentRotation();
+
+	if (GetMesh() && stumbleAnimation)
+	{
+		GetMesh()->PlayAnimation(stumbleAnimation, false); 
+	}
 
 	playerController->SetViewTargetWithBlend(
 		playerCharacter,

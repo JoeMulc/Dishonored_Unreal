@@ -131,6 +131,6 @@ void UWindBlast_Ability::BlastCharacter(ACharacter* character)
     mesh->SetAllBodiesBelowSimulatePhysics(FName("pelvis"), true, true);
 
     FVector end = character->GetActorLocation() + (playerCamera->GetUpVector() * windBlastForce / 10);              //reusing code but im too lazy to create the function rn this probs wont work anyway :(
-    FVector force = (end - start).GetSafeNormal() * windBlastForce * 10;
+    FVector force = (end - start).GetSafeNormal() * windBlastForce * 7;
     mesh->AddImpulse(force, NAME_None, true);
 }

@@ -14,6 +14,7 @@
 #include "InputActionValue.h"
 #include "Kismet/GameplayStatics.h"
 #include "DishonoredCharacter.h"
+#include "Animation/AnimSequence.h"
 #include "Enemy_Human_Character.generated.h"
 
 UCLASS()
@@ -67,6 +68,8 @@ protected:
 	void Disposses(const FInputActionValue& Value);
 
 	ADishonoredCharacter* playerCharacter; 
+
+	UPROPERTY() UAnimSequence* stumbleAnimation;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
