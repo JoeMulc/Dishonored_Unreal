@@ -8,6 +8,9 @@ UWindBlast_Ability::UWindBlast_Ability()
 {
 	static ConstructorHelpers::FObjectFinder<UTexture2D> IconAsset(TEXT("/Script/Engine.Texture2D'/Game/FirstPerson/UI/WindBlastIcon.WindBlastIcon'"));
 	if (IconAsset.Succeeded()) abilityIcon = IconAsset.Object;
+    
+    static ConstructorHelpers::FObjectFinder<UNiagaraSystem> windblastVFXAsset(TEXT("/Script/Niagara.NiagaraSystem'/Game/FirstPerson/Abilities/Windblast/WinblastVFX.WinblastVFX'"));
+    if (windblastVFXAsset.Succeeded()) windblastVFX = windblastVFXAsset.Object;
 
 	name = "WindBlast";
 	cooldown = 1.5f;
@@ -23,7 +26,9 @@ void UWindBlast_Ability::Activate()
 {
 	UE_LOG(LogTemp, Warning, TEXT("---------------------WindBlast activated!---------------------"));
 
-	if (IsOnCooldown()) return;
+	if (IsOnCooldown() || characterRef->currentMana < manaCost) return;
+
+    SpawnVFX();
 
     currentCooldown = cooldown;
     TakePlayerMana(manaCost);
@@ -85,7 +90,7 @@ TArray<AActor*> UWindBlast_Ability::TraceForMovable()
         }
     }
 
-    DrawDebugBox(GetWorld(), checkLocation, boxHalfExtents, boxRotation, FColor::Red, false, 0.1f, 0, 2.0f);
+    //DrawDebugBox(GetWorld(), checkLocation, boxHalfExtents, boxRotation, FColor::Red, false, 0.1f, 0, 2.0f);
 
     return hitActors;
 }
@@ -133,4 +138,23 @@ void UWindBlast_Ability::BlastCharacter(ACharacter* character)
     FVector end = character->GetActorLocation() + (playerCamera->GetUpVector() * windBlastForce / 10);              //reusing code but im too lazy to create the function rn this probs wont work anyway :(
     FVector force = (end - start).GetSafeNormal() * windBlastForce * 7;
     mesh->AddImpulse(force, NAME_None, true);
+}
+
+void UWindBlast_Ability::SpawnVFX()
+{
+    UCameraComponent* camera = characterRef->GetFirstPersonCameraComponent();
+    FRotator playerRotation = camera->GetComponentRotation();
+    FVector location = camera->GetComponentLocation() + (camera->GetForwardVector() * 650);
+
+    UNiagaraFunctionLibrary::SpawnSystemAtLocation(
+        GetWorld(),
+        windblastVFX,
+        location,
+        playerRotation + FRotator(90.f, 0.f, 0.f), //Temp correction for downwards origniinal speleingm lol
+        FVector(1.0f),
+        true,
+        true,
+        ENCPoolMethod::None
+    );
+
 }

@@ -8,6 +8,9 @@
 #include "WorldCollision.h"  
 #include "DrawDebugHelpers.h"
 #include "Engine/OverlapResult.h"
+#include "NiagaraSystem.h"
+#include "NiagaraComponent.h"
+#include "NiagaraFunctionLibrary.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/Character.h"
 #include "Components/SkeletalMeshComponent.h"
@@ -41,4 +44,10 @@ private:
 	void BlastObjects(TArray<AActor*> actors);
 
 	void BlastCharacter(ACharacter* character);
+
+	UPROPERTY(EditAnywhere) UNiagaraSystem* windblastVFX;
+
+	UPROPERTY() UNiagaraComponent* activeWindblastVFX;
+
+	void SpawnVFX();
 };

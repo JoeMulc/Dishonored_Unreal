@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define DISHONORED_WindBlast_Ability_generated_h
 
-#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_WindBlast_Ability_h_24_INCLASS_NO_PURE_DECLS \
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_WindBlast_Ability_h_27_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUWindBlast_Ability(); \
 	friend struct Z_Construct_UClass_UWindBlast_Ability_Statics; \
@@ -23,7 +23,7 @@ public: \
 	DECLARE_SERIALIZER(UWindBlast_Ability)
 
 
-#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_WindBlast_Ability_h_24_ENHANCED_CONSTRUCTORS \
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_WindBlast_Ability_h_27_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	UWindBlast_Ability(UWindBlast_Ability&&); \
@@ -35,12 +35,12 @@ public: \
 	NO_API virtual ~UWindBlast_Ability();
 
 
-#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_WindBlast_Ability_h_21_PROLOG
-#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_WindBlast_Ability_h_24_GENERATED_BODY \
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_WindBlast_Ability_h_24_PROLOG
+#define FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_WindBlast_Ability_h_27_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_WindBlast_Ability_h_24_INCLASS_NO_PURE_DECLS \
-	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_WindBlast_Ability_h_24_ENHANCED_CONSTRUCTORS \
+	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_WindBlast_Ability_h_27_INCLASS_NO_PURE_DECLS \
+	FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_WindBlast_Ability_h_27_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
