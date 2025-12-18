@@ -153,6 +153,16 @@ struct Z_Construct_UClass_ADishonoredCharacter_Statics
 		{ "Category", "UI" },
 		{ "ModuleRelativePath", "DishonoredCharacter.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bGrip_MetaData[] = {
+		{ "Category", "DishonoredCharacter" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//Animation stuff - mega temp\n" },
+#endif
+		{ "ModuleRelativePath", "DishonoredCharacter.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Animation stuff - mega temp" },
+#endif
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Mesh1P;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_FirstPersonCameraComponent;
@@ -170,6 +180,8 @@ struct Z_Construct_UClass_ADishonoredCharacter_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_abilityWheel;
 	static const UECodeGen_Private::FClassPropertyParams NewProp_manaBarWidgetClass;
 	static const UECodeGen_Private::FClassPropertyParams NewProp_abilityWheelClass;
+	static void NewProp_bGrip_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bGrip;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -193,6 +205,11 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADishonoredCha
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_abilityWheel = { "abilityWheel", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADishonoredCharacter, abilityWheel), Z_Construct_UClass_UAbilityWheel_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_abilityWheel_MetaData), NewProp_abilityWheel_MetaData) };
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_manaBarWidgetClass = { "manaBarWidgetClass", nullptr, (EPropertyFlags)0x0024080000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADishonoredCharacter, manaBarWidgetClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UManaBarWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_manaBarWidgetClass_MetaData), NewProp_manaBarWidgetClass_MetaData) };
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_abilityWheelClass = { "abilityWheelClass", nullptr, (EPropertyFlags)0x0024080000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADishonoredCharacter, abilityWheelClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UAbilityWheel_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_abilityWheelClass_MetaData), NewProp_abilityWheelClass_MetaData) };
+void Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_bGrip_SetBit(void* Obj)
+{
+	((ADishonoredCharacter*)Obj)->bGrip = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_bGrip = { "bGrip", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ADishonoredCharacter), &Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_bGrip_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bGrip_MetaData), NewProp_bGrip_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADishonoredCharacter_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_Mesh1P,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_FirstPersonCameraComponent,
@@ -210,6 +227,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADishonor
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_abilityWheel,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_manaBarWidgetClass,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_abilityWheelClass,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_bGrip,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ADishonoredCharacter_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ADishonoredCharacter_Statics::DependentSingletons[])() = {
@@ -252,10 +270,10 @@ ADishonoredCharacter::~ADishonoredCharacter() {}
 struct Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredCharacter_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ADishonoredCharacter, ADishonoredCharacter::StaticClass, TEXT("ADishonoredCharacter"), &Z_Registration_Info_UClass_ADishonoredCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADishonoredCharacter), 595565114U) },
+		{ Z_Construct_UClass_ADishonoredCharacter, ADishonoredCharacter::StaticClass, TEXT("ADishonoredCharacter"), &Z_Registration_Info_UClass_ADishonoredCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADishonoredCharacter), 2559166454U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredCharacter_h_1564729368(TEXT("/Script/Dishonored"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredCharacter_h_1140727016(TEXT("/Script/Dishonored"),
 	Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredCharacter_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

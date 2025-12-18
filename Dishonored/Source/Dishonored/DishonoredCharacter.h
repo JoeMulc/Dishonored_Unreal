@@ -110,5 +110,10 @@ public:
 	UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
 
 
+
+	//Animation stuff - mega temp
+	UPROPERTY(BlueprintReadWrite) bool bGrip = false;
+
+
 };
 

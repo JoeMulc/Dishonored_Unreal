@@ -53,6 +53,7 @@ void UBlink_Ability::Initialize()
 void UBlink_Ability::Activate()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Blink activated!"));
+	characterRef->bGrip = true;
 	doTick = true;
 	bAbilityActive = true;
 
@@ -71,6 +72,7 @@ void UBlink_Ability::Activate()
 void UBlink_Ability::Deactivate()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Blink deactivated!"));
+	characterRef->bGrip = false;
 	doTick = false;
 
 	if (activeBlinkVFX)

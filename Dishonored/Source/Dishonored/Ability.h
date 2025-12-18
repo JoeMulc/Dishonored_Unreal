@@ -39,6 +39,8 @@ public:
 
 	UPROPERTY(EditAnywhere) UTexture2D* abilityIcon;
 
+	UPROPERTY(BlueprintReadWrite) bool doAnimation = false;
+
 	bool bAbilityActive = false;
 
 protected:
