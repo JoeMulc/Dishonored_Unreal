@@ -55,7 +55,6 @@ void UDarkVision_Ability::Activate()
 		SetDarkVision(false);
 		bAbilityActive = false;
 	}
-
 }
 
 void UDarkVision_Ability::Deactivate()

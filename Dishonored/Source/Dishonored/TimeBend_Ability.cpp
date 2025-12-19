@@ -9,6 +9,17 @@ UTimeBend_Ability::UTimeBend_Ability()
 	static ConstructorHelpers::FObjectFinder<UTexture2D> IconAsset(TEXT("/Script/Engine.Texture2D'/Game/FirstPerson/UI/TimeBendIcon.TimeBendIcon'"));
 	if (IconAsset.Succeeded()) abilityIcon = IconAsset.Object;
 
+	static ConstructorHelpers::FObjectFinder<UAnimMontage> AnimAsset(TEXT("/Script/Engine.AnimMontage'/Game/FirstPerson/HandPoses/TimeBend_Anim_Montage.TimeBend_Anim_Montage'"));
+
+	if (AnimAsset.Succeeded())
+	{
+		activateAnimation = AnimAsset.Object;
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Animation Failed to load"));
+	}
+
 	name = "TimeBend";
 	cooldown = 5.0f;
 	manaCost = 66.f;
@@ -25,6 +36,8 @@ void UTimeBend_Ability::Activate()
 
 	if (!bAbilityActive && characterRef->currentMana > manaCost)
 	{
+		characterRef->GetMesh1P()->GetAnimInstance()->Montage_Play(activateAnimation);
+
 		bAbilityActive = true;
 		SetGrayscale(true);
 
