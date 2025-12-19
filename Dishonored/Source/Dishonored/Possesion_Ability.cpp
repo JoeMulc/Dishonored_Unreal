@@ -13,6 +13,18 @@ UPossesion_Ability::UPossesion_Ability()
 
 	if (possesionVFXAsset.Succeeded()) possesionVFX = possesionVFXAsset.Object;
 
+	static ConstructorHelpers::FObjectFinder<UAnimMontage> AnimAsset(TEXT("/Script/Engine.AnimMontage'/Game/FirstPerson/HandPoses/Possesed_Anim_Montage.Possesed_Anim_Montage'"));
+
+	if (AnimAsset.Succeeded())
+	{
+		activateAnimation = AnimAsset.Object;
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Animation Failed to load"));
+	}
+
+
 	name = "Possesion";
 	cooldown = 2.f;
 	manaCost = 75.f;
@@ -41,6 +53,8 @@ void UPossesion_Ability::Activate()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Possesion activated!"));
 
+	characterRef->bPossesing = true;
+
 	doTick = true;
 
 	if (activePossesionVFX) activePossesionVFX->SetVisibility(true);
@@ -50,6 +64,8 @@ void UPossesion_Ability::Deactivate()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Possesion deactivated!"));
 
+	characterRef->bPossesing = false;
+
 	doTick = false;
 	if (activePossesionVFX) activePossesionVFX->SetVisibility(false);
 	
@@ -57,43 +73,60 @@ void UPossesion_Ability::Deactivate()
 	if (pawnToPosses && characterRef->currentMana > manaCost)
 	{
 		TakePlayerMana(manaCost);
+		
 
 		if (playerController)
 		{
-			UCameraComponent* targetCamera = pawnToPosses->FindComponentByClass<UCameraComponent>();
-			FRotator targetRotation = targetCamera->GetComponentRotation();
-
-			playerController->SetViewTargetWithBlend(
-				pawnToPosses,
-				0.5f,
-				EViewTargetBlendFunction::VTBlend_Cubic
-			);
-
-			if (UCharacterMovementComponent* movementComp = characterRef->GetCharacterMovement())
+			UAnimInstance* AnimInstance = characterRef->GetMesh1P()->GetAnimInstance();
+			if (AnimInstance && activateAnimation)
 			{
-				movementComp->SetComponentTickEnabled(false);
-				movementComp->StopMovementImmediately();
-				movementComp->DisableMovement();
+				AnimInstance->Montage_Play(activateAnimation);
 			}
 
-			characterRef->SetActorTickEnabled(false);
-			characterRef->SetActorHiddenInGame(true);
-			characterRef->SetActorEnableCollision(false);
-			characterRef->DisableInput(playerController);
-
-			//Delay possesion
-			FTimerHandle possessTimer;
+			FTimerHandle montageTimer;
 			GetWorld()->GetTimerManager().SetTimer(
-				possessTimer,
-				[this, targetRotation]()
+				montageTimer,
+				[this]()
 				{
-					if (playerController && pawnToPosses)
+					if (!playerController || !pawnToPosses) return;
+
+					UCameraComponent* targetCamera = pawnToPosses->FindComponentByClass<UCameraComponent>();					//This code is gross need to use montage delegates but im tired and cba
+					FRotator targetRotation = targetCamera->GetComponentRotation();
+
+					playerController->SetViewTargetWithBlend(
+						pawnToPosses,
+						0.5f,
+						EViewTargetBlendFunction::VTBlend_Cubic
+					);
+
+					if (UCharacterMovementComponent* movementComp = characterRef->GetCharacterMovement())
 					{
-						playerController->Possess(pawnToPosses);
-						playerController->SetControlRotation(targetRotation);
+						movementComp->SetComponentTickEnabled(false);
+						movementComp->StopMovementImmediately();
+						movementComp->DisableMovement();
 					}
+
+					characterRef->SetActorTickEnabled(false);
+					characterRef->SetActorHiddenInGame(true);
+					characterRef->SetActorEnableCollision(false);
+					characterRef->DisableInput(playerController);
+
+					FTimerHandle possessTimer;
+					GetWorld()->GetTimerManager().SetTimer(
+						possessTimer,
+						[this, targetRotation]()
+						{
+							if (playerController && pawnToPosses)
+							{
+								playerController->Possess(pawnToPosses);
+								playerController->SetControlRotation(targetRotation);
+							}
+						},
+						0.5f,
+						false
+					);
 				},
-				0.5f,
+				0.2f,
 				false
 			);
 		}

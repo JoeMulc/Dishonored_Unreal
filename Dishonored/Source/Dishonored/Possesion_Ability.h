@@ -44,4 +44,6 @@ private:
 	UPROPERTY(EditAnywhere) UNiagaraSystem* possesionVFX;
 
 	UPROPERTY() UNiagaraComponent* activePossesionVFX;
+
+
 };

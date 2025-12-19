@@ -114,6 +114,6 @@ public:
 	//Animation stuff - mega temp
 	UPROPERTY(BlueprintReadWrite) bool bGrip = false;
 
-
+	UPROPERTY(BlueprintReadWrite) bool bPossesing = false;
 };
 

@@ -12,6 +12,17 @@ UWindBlast_Ability::UWindBlast_Ability()
     static ConstructorHelpers::FObjectFinder<UNiagaraSystem> windblastVFXAsset(TEXT("/Script/Niagara.NiagaraSystem'/Game/FirstPerson/Abilities/Windblast/WinblastVFX.WinblastVFX'"));
     if (windblastVFXAsset.Succeeded()) windblastVFX = windblastVFXAsset.Object;
 
+    static ConstructorHelpers::FObjectFinder<UAnimMontage> AnimAsset(TEXT("/Script/Engine.AnimMontage'/Game/FirstPerson/HandPoses/Windblast_Anim_Montage.Windblast_Anim_Montage'"));
+
+    if (AnimAsset.Succeeded())
+    {
+        activateAnimation = AnimAsset.Object;
+    }
+    else
+    {
+        UE_LOG(LogTemp, Error, TEXT("Animation Failed to load"));
+    }
+
 	name = "WindBlast";
 	cooldown = 1.5f;
 	manaCost = 33.f;
@@ -28,6 +39,7 @@ void UWindBlast_Ability::Activate()
 
 	if (IsOnCooldown() || characterRef->currentMana < manaCost) return;
 
+    characterRef->GetMesh1P()->GetAnimInstance()->Montage_Play(activateAnimation);
     SpawnVFX();
 
     currentCooldown = cooldown;
@@ -144,7 +156,7 @@ void UWindBlast_Ability::SpawnVFX()
 {
     UCameraComponent* camera = characterRef->GetFirstPersonCameraComponent();
     FRotator playerRotation = camera->GetComponentRotation();
-    FVector location = camera->GetComponentLocation() + (camera->GetForwardVector() * 650);
+    FVector location = camera->GetComponentLocation() + (camera->GetForwardVector() * 600);
 
     UNiagaraFunctionLibrary::SpawnSystemAtLocation(
         GetWorld(),

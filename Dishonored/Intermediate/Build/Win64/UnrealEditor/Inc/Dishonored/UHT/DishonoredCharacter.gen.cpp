@@ -163,6 +163,10 @@ struct Z_Construct_UClass_ADishonoredCharacter_Statics
 		{ "ToolTip", "Animation stuff - mega temp" },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bPossesing_MetaData[] = {
+		{ "Category", "DishonoredCharacter" },
+		{ "ModuleRelativePath", "DishonoredCharacter.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Mesh1P;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_FirstPersonCameraComponent;
@@ -182,6 +186,8 @@ struct Z_Construct_UClass_ADishonoredCharacter_Statics
 	static const UECodeGen_Private::FClassPropertyParams NewProp_abilityWheelClass;
 	static void NewProp_bGrip_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bGrip;
+	static void NewProp_bPossesing_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bPossesing;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -210,6 +216,11 @@ void Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_bGrip_SetBit(void*
 	((ADishonoredCharacter*)Obj)->bGrip = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_bGrip = { "bGrip", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ADishonoredCharacter), &Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_bGrip_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bGrip_MetaData), NewProp_bGrip_MetaData) };
+void Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_bPossesing_SetBit(void* Obj)
+{
+	((ADishonoredCharacter*)Obj)->bPossesing = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_bPossesing = { "bPossesing", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ADishonoredCharacter), &Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_bPossesing_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bPossesing_MetaData), NewProp_bPossesing_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADishonoredCharacter_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_Mesh1P,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_FirstPersonCameraComponent,
@@ -228,6 +239,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADishonor
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_manaBarWidgetClass,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_abilityWheelClass,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_bGrip,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADishonoredCharacter_Statics::NewProp_bPossesing,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ADishonoredCharacter_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ADishonoredCharacter_Statics::DependentSingletons[])() = {
@@ -270,10 +282,10 @@ ADishonoredCharacter::~ADishonoredCharacter() {}
 struct Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredCharacter_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ADishonoredCharacter, ADishonoredCharacter::StaticClass, TEXT("ADishonoredCharacter"), &Z_Registration_Info_UClass_ADishonoredCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADishonoredCharacter), 2559166454U) },
+		{ Z_Construct_UClass_ADishonoredCharacter, ADishonoredCharacter::StaticClass, TEXT("ADishonoredCharacter"), &Z_Registration_Info_UClass_ADishonoredCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADishonoredCharacter), 1242085703U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredCharacter_h_1140727016(TEXT("/Script/Dishonored"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredCharacter_h_853582002(TEXT("/Script/Dishonored"),
 	Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_Dishonored_Dishonored_Unreal_Dishonored_Source_Dishonored_DishonoredCharacter_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

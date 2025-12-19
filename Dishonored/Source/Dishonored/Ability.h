@@ -5,7 +5,9 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "Tickable.h"
+#include "Animation/AnimSequence.h"
 #include "Components/Image.h"
+#include "Animation/AnimMontage.h"
 #include "Ability.generated.h"
 
 /**
@@ -51,5 +53,5 @@ protected:
 
 	UPROPERTY(EditAnywhere) float manaCost = 0.f;
 
-
+	UPROPERTY() UAnimMontage* activateAnimation;
 };
