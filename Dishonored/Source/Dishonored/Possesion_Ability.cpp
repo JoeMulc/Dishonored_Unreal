@@ -15,6 +15,9 @@ UPossesion_Ability::UPossesion_Ability()
 
 	static ConstructorHelpers::FObjectFinder<UAnimMontage> AnimAsset(TEXT("/Script/Engine.AnimMontage'/Game/FirstPerson/HandPoses/Possesed_Anim_Montage.Possesed_Anim_Montage'"));
 
+	static ConstructorHelpers::FObjectFinder<USoundBase> activateSoundAsset(TEXT("/Script/Engine.SoundWave'/Game/FirstPerson/Audio/PossesionAudio.PossesionAudio'"));
+	if (IconAsset.Succeeded()) activateSound = activateSoundAsset.Object;
+
 	if (AnimAsset.Succeeded())
 	{
 		activateAnimation = AnimAsset.Object;
@@ -72,6 +75,7 @@ void UPossesion_Ability::Deactivate()
 
 	if (pawnToPosses && characterRef->currentMana > manaCost)
 	{
+		UGameplayStatics::PlaySound2D(GetWorld(), activateSound);
 		TakePlayerMana(manaCost);
 		
 

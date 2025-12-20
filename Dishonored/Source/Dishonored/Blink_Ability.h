@@ -69,4 +69,6 @@ private:
 	UFUNCTION() void BlinkTimelineUpdate(float alpha);
 	UFUNCTION() void BlinkTimelineFinished();
 
+	USoundBase* cancelSound;
+
 };

@@ -21,6 +21,15 @@ UBlink_Ability::UBlink_Ability()
 
 	static ConstructorHelpers::FObjectFinder<UTexture2D> IconAsset(TEXT("/Script/Engine.Texture2D'/Game/FirstPerson/UI/DishonorerdIcon.DishonorerdIcon'"));
 	if (IconAsset.Succeeded()) abilityIcon = IconAsset.Object;
+
+	static ConstructorHelpers::FObjectFinder<USoundBase> activateSoundAsset(TEXT("/Script/Engine.SoundWave'/Game/FirstPerson/Audio/BlinkStartedAudio.BlinkStartedAudio'"));
+	if (IconAsset.Succeeded()) activateSound = activateSoundAsset.Object;
+
+	static ConstructorHelpers::FObjectFinder<USoundBase> deactivateSoundAsset(TEXT("/Script/Engine.SoundWave'/Game/FirstPerson/Audio/BlinkEndedAudio.BlinkEndedAudio'"));
+	if (IconAsset.Succeeded()) deactivateSound = deactivateSoundAsset.Object;
+
+	static ConstructorHelpers::FObjectFinder<USoundBase> cancelSoundAsset(TEXT("/Script/Engine.SoundWave'/Game/FirstPerson/Audio/BlinkCancelAudio.BlinkCancelAudio'"));
+	if (IconAsset.Succeeded()) cancelSound = cancelSoundAsset.Object;
 	
 	name = "Blink";
 	cooldown = 1.5f;
@@ -57,6 +66,8 @@ void UBlink_Ability::Activate()
 	doTick = true;
 	bAbilityActive = true;
 
+	UGameplayStatics::PlaySound2D(GetWorld(), activateSound);
+
 	activeBlinkVFX = UNiagaraFunctionLibrary::SpawnSystemAtLocation(
 		GetWorld(),
 		IsOnCooldown() ? blinkOnCooldownVFX : blinkVFX,
@@ -75,6 +86,8 @@ void UBlink_Ability::Deactivate()
 	characterRef->bGrip = false;
 	doTick = false;
 
+	
+
 	if (activeBlinkVFX)
 	{
 		activeBlinkVFX->Deactivate();
@@ -84,11 +97,16 @@ void UBlink_Ability::Deactivate()
 
 	if (!IsOnCooldown() && characterRef->currentMana > manaCost)
 	{
+		UGameplayStatics::PlaySound2D(GetWorld(), deactivateSound);
 		ExecuteBlink();
 		currentCooldown = cooldown;
 		TakePlayerMana(manaCost);
 		characterRef->manaBarWidget->UpdateManaBar(characterRef->currentMana, characterRef->maxMana);
 		characterRef->currentManaRegenCooldown = characterRef->manaRegenCooldown;
+	}
+	else
+	{
+		UGameplayStatics::PlaySound2D(GetWorld(), cancelSound);
 	}
 }
 

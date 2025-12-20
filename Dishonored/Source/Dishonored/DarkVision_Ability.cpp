@@ -11,6 +11,9 @@ UDarkVision_Ability::UDarkVision_Ability()
 	static ConstructorHelpers::FObjectFinder<UTexture2D> IconAsset(TEXT("/ Script / Engine.Texture2D'/Game/FirstPerson/UI/DarkVisionIcon.DarkVisionIcon'"));
 	if (IconAsset.Succeeded()) abilityIcon = IconAsset.Object;
 
+	static ConstructorHelpers::FObjectFinder<USoundBase> activateSoundAsset(TEXT("/Script/Engine.SoundWave'/Game/FirstPerson/Audio/DarkVisionAudio.DarkVisionAudio'"));
+	if (IconAsset.Succeeded()) activateSound = activateSoundAsset.Object;
+
 	darkVisionMat = LoadObject<UMaterialInstance>(nullptr, TEXT("/Script/Engine.MaterialInstanceConstant'/Game/FirstPerson/Abilities/DarkVision/Mat_DarkVisialHighlight_Inst.Mat_DarkVisialHighlight_Inst'"));
 
 	name = "DarkVision";
@@ -44,6 +47,7 @@ void UDarkVision_Ability::Activate()
 
 	if (!bAbilityActive && characterRef->currentMana > manaCost)
 	{
+		UGameplayStatics::PlaySound2D(GetWorld(), activateSound);
 		bAbilityActive = true;
 		currentCooldown = cooldown;
 		TakePlayerMana(manaCost);

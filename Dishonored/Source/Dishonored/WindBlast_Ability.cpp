@@ -14,6 +14,9 @@ UWindBlast_Ability::UWindBlast_Ability()
 
     static ConstructorHelpers::FObjectFinder<UAnimMontage> AnimAsset(TEXT("/Script/Engine.AnimMontage'/Game/FirstPerson/HandPoses/Windblast_Anim_Montage.Windblast_Anim_Montage'"));
 
+    static ConstructorHelpers::FObjectFinder<USoundBase> activateSoundAsset(TEXT("/Script/Engine.SoundWave'/Game/FirstPerson/Audio/WindblastAudio.WindblastAudio'"));
+    if (IconAsset.Succeeded()) activateSound = activateSoundAsset.Object;
+
     if (AnimAsset.Succeeded())
     {
         activateAnimation = AnimAsset.Object;
@@ -38,6 +41,8 @@ void UWindBlast_Ability::Activate()
 	UE_LOG(LogTemp, Warning, TEXT("---------------------WindBlast activated!---------------------"));
 
 	if (IsOnCooldown() || characterRef->currentMana < manaCost) return;
+
+    UGameplayStatics::PlaySound2D(GetWorld(), activateSound);
 
     characterRef->GetMesh1P()->GetAnimInstance()->Montage_Play(activateAnimation);
     SpawnVFX();

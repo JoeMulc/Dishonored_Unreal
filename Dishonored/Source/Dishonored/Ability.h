@@ -8,6 +8,8 @@
 #include "Animation/AnimSequence.h"
 #include "Components/Image.h"
 #include "Animation/AnimMontage.h"
+#include "Sound/SoundBase.h"
+#include "Kismet/GameplayStatics.h"
 #include "Ability.generated.h"
 
 /**
@@ -54,4 +56,7 @@ protected:
 	UPROPERTY(EditAnywhere) float manaCost = 0.f;
 
 	UPROPERTY() UAnimMontage* activateAnimation;
+
+	USoundBase* activateSound;
+	USoundBase* deactivateSound; 
 };

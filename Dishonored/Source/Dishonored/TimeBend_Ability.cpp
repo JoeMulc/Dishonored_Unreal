@@ -11,6 +11,9 @@ UTimeBend_Ability::UTimeBend_Ability()
 
 	static ConstructorHelpers::FObjectFinder<UAnimMontage> AnimAsset(TEXT("/Script/Engine.AnimMontage'/Game/FirstPerson/HandPoses/TimeBend_Anim_Montage.TimeBend_Anim_Montage'"));
 
+	static ConstructorHelpers::FObjectFinder<USoundBase> activateSoundAsset(TEXT("/Script/Engine.SoundWave'/Game/FirstPerson/Audio/TimeBendAudio.TimeBendAudio'"));
+	if (IconAsset.Succeeded()) activateSound = activateSoundAsset.Object;
+
 	if (AnimAsset.Succeeded())
 	{
 		activateAnimation = AnimAsset.Object;
@@ -36,6 +39,8 @@ void UTimeBend_Ability::Activate()
 
 	if (!bAbilityActive && characterRef->currentMana > manaCost)
 	{
+		UGameplayStatics::PlaySound2D(GetWorld(), activateSound);
+
 		characterRef->GetMesh1P()->GetAnimInstance()->Montage_Play(activateAnimation);
 
 		bAbilityActive = true;
