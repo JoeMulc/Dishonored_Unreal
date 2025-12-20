@@ -2,22 +2,6 @@
 	"RemapUnityFiles": 
 	{
 		"Module.Dishonored.cpp.obj": [
-			"Ability.cpp.obj",
-			"AbilityManager_Component.cpp.obj",
-			"AbilityWheel.cpp.obj",
-			"AnimNotifyState_RagDoll.cpp.obj",
-			"Blink_Ability.cpp.obj",
-			"DarkVisionHighlight_Component.cpp.obj",
-			"Dishonored.cpp.obj",
-			"DishonoredCharacter.cpp.obj",
-			"DishonoredGameMode.cpp.obj",
-			"DishonoredPickUpComponent.cpp.obj",
-			"DishonoredProjectile.cpp.obj",
-			"DishonoredWeaponComponent.cpp.obj",
-			"Enemy_Human_Character.cpp.obj",
-			"ManaBarWidget.cpp.obj",
-			"Possesion_Ability.cpp.obj",
-			"WindBlast_Ability.cpp.obj",
 			"Ability.gen.cpp.obj",
 			"AbilityManager_Component.gen.cpp.obj",
 			"AbilityWheel.gen.cpp.obj",
@@ -37,8 +21,24 @@
 			"TimeBend_Ability.gen.cpp.obj",
 			"WindBlast_Ability.gen.cpp.obj",
 			"PerModuleInline.gen.cpp.obj",
+			"Ability.cpp.obj",
+			"AbilityManager_Component.cpp.obj",
+			"AbilityWheel.cpp.obj",
+			"AnimNotifyState_RagDoll.cpp.obj",
+			"Blink_Ability.cpp.obj",
+			"DarkVisionHighlight_Component.cpp.obj",
 			"DarkVision_Ability.cpp.obj",
-			"TimeBend_Ability.cpp.obj"
+			"Dishonored.cpp.obj",
+			"DishonoredCharacter.cpp.obj",
+			"DishonoredGameMode.cpp.obj",
+			"DishonoredPickUpComponent.cpp.obj",
+			"DishonoredProjectile.cpp.obj",
+			"DishonoredWeaponComponent.cpp.obj",
+			"Enemy_Human_Character.cpp.obj",
+			"ManaBarWidget.cpp.obj",
+			"Possesion_Ability.cpp.obj",
+			"TimeBend_Ability.cpp.obj",
+			"WindBlast_Ability.cpp.obj"
 		]
 	}
 }
