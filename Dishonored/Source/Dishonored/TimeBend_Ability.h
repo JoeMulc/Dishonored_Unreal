@@ -34,4 +34,6 @@ protected:
 
 	UPROPERTY(EditAnywhere) float timeSlowPercentage = 10.f;
 
+	USoundBase* timeSlowSFX;
+
 };

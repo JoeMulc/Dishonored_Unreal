@@ -14,6 +14,9 @@ UTimeBend_Ability::UTimeBend_Ability()
 	static ConstructorHelpers::FObjectFinder<USoundBase> activateSoundAsset(TEXT("/Script/Engine.SoundWave'/Game/FirstPerson/Audio/TimeBendAudio.TimeBendAudio'"));
 	if (IconAsset.Succeeded()) activateSound = activateSoundAsset.Object;
 
+	static ConstructorHelpers::FObjectFinder<USoundBase> timeSlowSoundAsset(TEXT("/Script/Engine.SoundWave'/Game/FirstPerson/Audio/SlowdownAudio.SlowdownAudio'"));
+	if (IconAsset.Succeeded()) timeSlowSFX = timeSlowSoundAsset.Object;
+
 	if (AnimAsset.Succeeded())
 	{
 		activateAnimation = AnimAsset.Object;
@@ -40,6 +43,7 @@ void UTimeBend_Ability::Activate()
 	if (!bAbilityActive && characterRef->currentMana > manaCost)
 	{
 		UGameplayStatics::PlaySound2D(GetWorld(), activateSound);
+		UGameplayStatics::PlaySound2D(GetWorld(), timeSlowSFX);
 
 		characterRef->GetMesh1P()->GetAnimInstance()->Montage_Play(activateAnimation);
 

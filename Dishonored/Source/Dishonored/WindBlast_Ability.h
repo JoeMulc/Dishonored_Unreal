@@ -49,5 +49,7 @@ private:
 
 	UPROPERTY() UNiagaraComponent* activeWindblastVFX;
 
+	USoundBase* windGustSFX;
+
 	void SpawnVFX();
 };

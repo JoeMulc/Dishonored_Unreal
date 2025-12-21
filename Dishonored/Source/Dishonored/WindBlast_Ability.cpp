@@ -17,6 +17,9 @@ UWindBlast_Ability::UWindBlast_Ability()
     static ConstructorHelpers::FObjectFinder<USoundBase> activateSoundAsset(TEXT("/Script/Engine.SoundWave'/Game/FirstPerson/Audio/WindblastAudio.WindblastAudio'"));
     if (IconAsset.Succeeded()) activateSound = activateSoundAsset.Object;
 
+    static ConstructorHelpers::FObjectFinder<USoundBase> gustSoundAsset(TEXT("/Script/Engine.SoundWave'/Game/FirstPerson/Audio/WindGustAudio.WindGustAudio'"));
+    if (IconAsset.Succeeded()) windGustSFX = gustSoundAsset.Object;
+
     if (AnimAsset.Succeeded())
     {
         activateAnimation = AnimAsset.Object;
@@ -43,6 +46,7 @@ void UWindBlast_Ability::Activate()
 	if (IsOnCooldown() || characterRef->currentMana < manaCost) return;
 
     UGameplayStatics::PlaySound2D(GetWorld(), activateSound);
+    UGameplayStatics::PlaySound2D(GetWorld(), windGustSFX, 1.f, GetWorld()->GetWorldSettings()->GetEffectiveTimeDilation());
 
     characterRef->GetMesh1P()->GetAnimInstance()->Montage_Play(activateAnimation);
     SpawnVFX();

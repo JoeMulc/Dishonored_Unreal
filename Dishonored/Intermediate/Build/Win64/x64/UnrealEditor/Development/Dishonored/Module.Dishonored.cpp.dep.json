@@ -285,10 +285,14 @@
             "d:\\epic games\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\engine\\overlapresult.h",
             "d:\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\overlapresult.generated.h",
             "d:\\unreal\\dishonored\\dishonored_unreal\\dishonored\\intermediate\\build\\win64\\unrealeditor\\inc\\dishonored\\uht\\windblast_ability.generated.h",
+            "d:\\unreal\\dishonored\\dishonored_unreal\\dishonored\\source\\dishonored\\ability.cpp",
             "d:\\unreal\\dishonored\\dishonored_unreal\\dishonored\\source\\dishonored\\abilitymanager_component.cpp",
             "d:\\unreal\\dishonored\\dishonored_unreal\\dishonored\\source\\dishonored\\abilitywheel.cpp",
             "d:\\unreal\\dishonored\\dishonored_unreal\\dishonored\\source\\dishonored\\animnotifystate_ragdoll.cpp",
+            "d:\\unreal\\dishonored\\dishonored_unreal\\dishonored\\source\\dishonored\\blink_ability.cpp",
             "d:\\unreal\\dishonored\\dishonored_unreal\\dishonored\\source\\dishonored\\darkvisionhighlight_component.cpp",
+            "d:\\unreal\\dishonored\\dishonored_unreal\\dishonored\\source\\dishonored\\darkvision_ability.cpp",
+            "d:\\epic games\\ue_5.5\\engine\\source\\runtime\\engine\\public\\engineutils.h",
             "d:\\unreal\\dishonored\\dishonored_unreal\\dishonored\\source\\dishonored\\dishonored.cpp",
             "d:\\unreal\\dishonored\\dishonored_unreal\\dishonored\\source\\dishonored\\dishonored.h",
             "d:\\unreal\\dishonored\\dishonored_unreal\\dishonored\\source\\dishonored\\dishonoredcharacter.cpp",
@@ -299,7 +303,8 @@
             "d:\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\projectilemovementcomponent.generated.h",
             "d:\\unreal\\dishonored\\dishonored_unreal\\dishonored\\source\\dishonored\\dishonoredweaponcomponent.cpp",
             "d:\\unreal\\dishonored\\dishonored_unreal\\dishonored\\source\\dishonored\\enemy_human_character.cpp",
-            "d:\\unreal\\dishonored\\dishonored_unreal\\dishonored\\source\\dishonored\\manabarwidget.cpp"
+            "d:\\unreal\\dishonored\\dishonored_unreal\\dishonored\\source\\dishonored\\manabarwidget.cpp",
+            "d:\\unreal\\dishonored\\dishonored_unreal\\dishonored\\source\\dishonored\\possesion_ability.cpp"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []
