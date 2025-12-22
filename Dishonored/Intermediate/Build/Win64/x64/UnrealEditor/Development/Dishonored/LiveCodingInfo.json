@@ -28,7 +28,6 @@
 			"DarkVisionHighlight_Component.cpp.obj",
 			"DarkVision_Ability.cpp.obj",
 			"Dishonored.cpp.obj",
-			"DishonoredCharacter.cpp.obj",
 			"DishonoredGameMode.cpp.obj",
 			"DishonoredPickUpComponent.cpp.obj",
 			"DishonoredProjectile.cpp.obj",
@@ -36,9 +35,10 @@
 			"Enemy_Human_Character.cpp.obj",
 			"ManaBarWidget.cpp.obj",
 			"Possesion_Ability.cpp.obj",
-			"PerModuleInline.gen.cpp.obj",
 			"TimeBend_Ability.cpp.obj",
-			"WindBlast_Ability.cpp.obj"
+			"WindBlast_Ability.cpp.obj",
+			"PerModuleInline.gen.cpp.obj",
+			"DishonoredCharacter.cpp.obj"
 		]
 	}
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DishonoredModuleRules")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Development")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+667dbbd5a738406c046d15fd3a88d93e19a77924")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2a264fc714d75e1d90c8465603073fc1d395e90b")]
 [assembly: System.Reflection.AssemblyProductAttribute("DishonoredModuleRules")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DishonoredModuleRules")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

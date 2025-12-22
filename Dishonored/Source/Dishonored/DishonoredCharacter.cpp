@@ -8,6 +8,7 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "GameFramework/CharacterMovementComponent.h"
 #include "InputActionValue.h"
 #include "Engine/LocalPlayer.h"
 
@@ -37,6 +38,9 @@ ADishonoredCharacter::ADishonoredCharacter()
 
 	//Create ability component
 	abilityManager = CreateDefaultSubobject<UAbilityManager_Component>(TEXT("AbilityComponent"));
+
+	static ConstructorHelpers::FObjectFinder<USoundBase> footstepSoundAsset(TEXT("/Script/Engine.SoundWave'/Game/FirstPerson/Audio/footstepConcreteAudio.footstepConcreteAudio'"));
+	if (footstepSoundAsset.Succeeded()) footstepSound = footstepSoundAsset.Object;
 
 	currentMana = maxMana;
 }
@@ -104,6 +108,22 @@ void ADishonoredCharacter::Tick(float DeltaTime)
 	if (abilityWheel && !abilityManager->IsBlinking())
 	{
 		currentAbilityIndex = abilityWheel->selectedIndex;
+	}
+
+	FVector currentVelocity = GetVelocity();
+	float speed = currentVelocity.Size2D();
+
+	if (speed > 10.0f && GetCharacterMovement()->IsMovingOnGround())
+	{
+		distanceSinceLastFootstep += speed * DeltaTime;
+
+		if (distanceSinceLastFootstep >= footstepDistance)
+		{
+			//UE_LOG(LogTemplateCharacter, Warning, TEXT("Step"));
+			float randomPitch = FMath::RandRange(0.9f, 1.1f);
+			UGameplayStatics::PlaySound2D(GetWorld(), footstepSound, 1.f, randomPitch);
+			distanceSinceLastFootstep = 0.0f;
+		}
 	}
 
 	//UE_LOG(LogTemplateCharacter, Warning, TEXT("Mana : %f"), currentMana);

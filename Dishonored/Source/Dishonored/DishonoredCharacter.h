@@ -8,6 +8,7 @@
 #include "AbilityManager_Component.h"
 #include "ManaBarWidget.h"
 #include "AbilityWheel.h"
+#include "Sound/SoundBase.h"
 #include "DishonoredCharacter.generated.h"
 
 class UInputComponent;
@@ -102,6 +103,10 @@ protected:
 	virtual void NotifyControllerChanged() override;
 	virtual void SetupPlayerInputComponent(UInputComponent* InputComponent) override;
 	// End of APawn interface
+
+	float distanceSinceLastFootstep = 0.f;
+	float footstepDistance = 250.f;
+	USoundBase* footstepSound;
 
 public:
 	/** Returns Mesh1P subobject **/

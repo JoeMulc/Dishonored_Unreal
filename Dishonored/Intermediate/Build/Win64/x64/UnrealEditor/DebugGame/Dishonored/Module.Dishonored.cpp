@@ -7,7 +7,6 @@
 #include "D:/Unreal/Dishonored/Dishonored_Unreal/Dishonored/Source/Dishonored/DarkVisionHighlight_Component.cpp"
 #include "D:/Unreal/Dishonored/Dishonored_Unreal/Dishonored/Source/Dishonored/DarkVision_Ability.cpp"
 #include "D:/Unreal/Dishonored/Dishonored_Unreal/Dishonored/Source/Dishonored/Dishonored.cpp"
-#include "D:/Unreal/Dishonored/Dishonored_Unreal/Dishonored/Source/Dishonored/DishonoredCharacter.cpp"
 #include "D:/Unreal/Dishonored/Dishonored_Unreal/Dishonored/Source/Dishonored/DishonoredGameMode.cpp"
 #include "D:/Unreal/Dishonored/Dishonored_Unreal/Dishonored/Source/Dishonored/DishonoredPickUpComponent.cpp"
 #include "D:/Unreal/Dishonored/Dishonored_Unreal/Dishonored/Source/Dishonored/DishonoredProjectile.cpp"
@@ -15,3 +14,5 @@
 #include "D:/Unreal/Dishonored/Dishonored_Unreal/Dishonored/Source/Dishonored/Enemy_Human_Character.cpp"
 #include "D:/Unreal/Dishonored/Dishonored_Unreal/Dishonored/Source/Dishonored/ManaBarWidget.cpp"
 #include "D:/Unreal/Dishonored/Dishonored_Unreal/Dishonored/Source/Dishonored/Possesion_Ability.cpp"
+#include "D:/Unreal/Dishonored/Dishonored_Unreal/Dishonored/Source/Dishonored/TimeBend_Ability.cpp"
+#include "D:/Unreal/Dishonored/Dishonored_Unreal/Dishonored/Source/Dishonored/WindBlast_Ability.cpp"
