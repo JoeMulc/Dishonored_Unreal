@@ -14,7 +14,7 @@
 ![Possesion](Dishonored/Gifs/PossesionGif.gif)
 
 ## Windblast
-![Windblast](Dishonored/Gifs/WindblastGif(2).gif)
+![Windblast](Dishonored/Gifs/WindblastGif.gif)
 
 ## Timebend
 ![Timebend](Dishonored/Gifs/TimeBendGif.gif)
